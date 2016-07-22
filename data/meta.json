@@ -1,6 +1,6 @@
 {
   "_id": "meta",
-  "_rev": "11-aa1df92f3c5b6a0d9d5f54da426951cf",
+  "_rev": "7-35da1ba66172eb00beb24039f8c57771",
   "enm": {
     "accumulation_record_type": [
       {
@@ -12,6 +12,50 @@
         "order": 1,
         "name": "credit",
         "synonym": "Расход"
+      }
+    ],
+    "contract_kinds": [
+      {
+        "order": 0,
+        "name": "СПоставщиком",
+        "synonym": "С поставщиком"
+      },
+      {
+        "order": 1,
+        "name": "СПокупателем",
+        "synonym": "С покупателем"
+      },
+      {
+        "order": 2,
+        "name": "СКомитентом",
+        "synonym": "С комитентом"
+      },
+      {
+        "order": 3,
+        "name": "СКомиссионером",
+        "synonym": "С комиссионером"
+      },
+      {
+        "order": 4,
+        "name": "Прочее",
+        "synonym": "Прочее"
+      }
+    ],
+    "ВидыСкладов": [
+      {
+        "order": 0,
+        "name": "Оптовый",
+        "synonym": "Оптовый"
+      },
+      {
+        "order": 1,
+        "name": "Розничный",
+        "synonym": "Розничный"
+      },
+      {
+        "order": 2,
+        "name": "НТТ",
+        "synonym": "НТТ"
       }
     ],
     "СтавкиНДС": [
@@ -56,7 +100,7 @@
         "synonym": "20% / 120%"
       }
     ],
-    "ТипыКонтактнойИнформации": [
+    "contact_information_types": [
       {
         "order": 0,
         "name": "Адрес",
@@ -83,7 +127,7 @@
         "synonym": "Другое"
       }
     ],
-    "ТипыНоменклатуры": [
+    "nom_types": [
       {
         "order": 0,
         "name": "Товар",
@@ -182,7 +226,7 @@
     ]
   },
   "cat": {
-    "Банки": {
+    "banks_qualifier": {
       "name": false,
       "splitted": null,
       "synonym": "Банки",
@@ -250,7 +294,7 @@
           "tooltip": "",
           "type": {
             "types": [
-              "cat.Банки"
+              "cat.banks_qualifier"
             ],
             "is_ref": true
           }
@@ -260,7 +304,7 @@
       },
       "cachable": "ram"
     },
-    "БанковскиеСчета": {
+    "bank_accounts": {
       "name": false,
       "splitted": null,
       "synonym": "Банковские счета",
@@ -295,7 +339,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Банки"
+              "cat.banks_qualifier"
             ],
             "is_ref": true
           }
@@ -307,7 +351,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Банки"
+              "cat.banks_qualifier"
             ],
             "is_ref": true
           }
@@ -345,14 +389,14 @@
             "str_len": 15
           }
         },
-        "ВалютаДенежныхСредств": {
+        "funds_currency": {
           "synonym": "Валюта денежных средств",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
@@ -417,8 +461,8 @@
           "mandatory": true,
           "type": {
             "types": [
-              "cat.Организации",
-              "cat.Контрагенты"
+              "cat.organizations",
+              "cat.partners"
             ],
             "is_ref": true
           }
@@ -428,7 +472,7 @@
       },
       "cachable": "ram"
     },
-    "Валюты": {
+    "currencies": {
       "name": false,
       "splitted": null,
       "synonym": "Валюты",
@@ -494,7 +538,7 @@
       },
       "cachable": "ram"
     },
-    "ВидыКонтактнойИнформации": {
+    "contact_information_kinds": {
       "name": false,
       "splitted": null,
       "synonym": "Виды контактной информации",
@@ -517,7 +561,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "enm.ТипыКонтактнойИнформации"
+              "enm.contact_information_types"
             ],
             "is_ref": true
           }
@@ -539,7 +583,7 @@
       },
       "cachable": "ram"
     },
-    "ВидыНоменклатуры": {
+    "nom_kinds": {
       "name": false,
       "splitted": null,
       "synonym": "Виды номенклатуры",
@@ -556,14 +600,14 @@
       "main_presentation_name": true,
       "code_length": 9,
       "fields": {
-        "ТипНоменклатуры": {
+        "nom_type": {
           "synonym": "Тип номенклатуры",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "enm.ТипыНоменклатуры"
+              "enm.nom_types"
             ],
             "is_ref": true
           }
@@ -597,7 +641,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
@@ -609,7 +653,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ДоговорыКонтрагентов"
+              "cat.contracts"
             ],
             "is_ref": true
           }
@@ -650,7 +694,7 @@
       },
       "cachable": "ram"
     },
-    "ЕдиницыИзмерения": {
+    "nom_units": {
       "name": false,
       "splitted": null,
       "synonym": "Единицы измерения",
@@ -667,14 +711,14 @@
       "main_presentation_name": true,
       "code_length": 9,
       "fields": {
-        "ЕдиницаПоКлассификатору": {
+        "qualifier_unit": {
           "synonym": "Единица по классификатору",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.КлассификаторЕдиницИзмерения"
+              "cat.units"
             ],
             "is_ref": true
           }
@@ -722,8 +766,8 @@
           "mandatory": true,
           "type": {
             "types": [
-              "cat.Номенклатура",
-              "cat.НоменклатурныеГруппы"
+              "cat.nom",
+              "cat.nom_groups"
             ],
             "is_ref": true
           }
@@ -874,7 +918,7 @@
               "enm.ТипыОплатЧекаККМ",
               "cat.СтатьиДвиженияДенежныхСредств",
               "doc.КорректировкаРеализации",
-              "cat.ВидыКонтактнойИнформации",
+              "cat.contact_information_kinds",
               "enm.ВидыСкидок",
               "enm.СпособыЗаполненияЦен",
               "enm.СпособыРасчетаЦены",
@@ -884,13 +928,13 @@
               "enm.ВидыДействийПоЗаказамПокупателей",
               "enm.ВидыОперацийЗакрытиеВнутреннихЗаказов",
               "enm.СостоянияСоглашенийЭД",
-              "doc.ЗаказПокупателя",
+              "doc.buyers_order",
               "doc.ПереоценкаВалютныхСредств",
               "enm.СпособОтправкиЭлектронногоДокумента",
               "enm.ДополнительнаяКолонкаПечатныхФормДокументов",
               "enm.ДействияПриОбмене",
               "enm.ВидыАгентскихДоговоров",
-              "cat.Организации",
+              "cat.organizations",
               "doc.ВходящееИзвещение",
               "doc.ТТНВходящаяЕГАИС",
               "enm.ВерсииФорматаПакетаЭД",
@@ -938,7 +982,7 @@
               "cat.ДокументыУдостоверяющиеЛичность",
               "enm.ТООшибкиСШК",
               "doc.ПлатежноеПоручениеИсходящее",
-              "cat.БанковскиеСчета",
+              "cat.bank_accounts",
               "doc.ИсходящееИзвещение",
               "doc.ПроизвольныйЭД",
               "doc.ВосстановлениеНДС",
@@ -978,19 +1022,19 @@
               "doc.РезервированиеТоваров",
               "enm.ВидыНаследованияПравДоступаИерархическихСправочников",
               "enm.ДетализацияПланирования",
-              "cat.Подразделения",
-              "enm.ТипыНоменклатуры",
-              "cat.Банки",
+              "cat.divisions",
+              "enm.nom_types",
+              "cat.banks_qualifier",
               "doc.АккредитивПереданный",
               "doc.РеестрСчетов",
               "doc.ПакетЭД",
               "enm.СтатусыОбработкиАктаСписанияЕГАИС",
               "doc.ВнутреннийЗаказ",
               "cat.РолиКонтактныхЛиц",
-              "cat.КлассификаторЕдиницИзмерения",
+              "cat.units",
               "cch.properties",
               "enm.ОбязательностьЗаполненияОтветаНаВопрос",
-              "cat.ДоговорыКонтрагентов",
+              "cat.contracts",
               "enm.ВариантыУказанияЗаказовВТабличнойЧастиДокументов",
               "enm.ВидыОперацийПереоценкаТоваровВРознице",
               "enm.ИнтеграцияТипСвёртки",
@@ -1004,14 +1048,14 @@
               "enm.ПолФизическихЛиц",
               "enm.СобытияПоНДСПокупки",
               "enm.СостоянияКонтрагентаБЭД",
-              "cat.Номенклатура",
+              "cat.nom",
               "doc.КорректировкаСтоимостиСписанияТоваров",
               "cat.СправкиБЕГАИС",
               "doc.КорректировкаКачестваТоваров",
               "doc.ВходящийЗапросПрайсЛиста",
               "cat.ВариантыОтветовОпросов",
               "doc.СписаниеТоваров",
-              "cat.Контрагенты",
+              "cat.partners",
               "pnt.ПереоценкаТоваровАТТ",
               "enm.СпособыОпределенияВремениПроведенияПлатежногоДокумента",
               "cat.ТипыСкидокНаценок",
@@ -1046,7 +1090,7 @@
               "enm.ВидыДействийАвтоПолученияОтправкиЭлектронныхПисем",
               "cat.КлассификаторСтранМира",
               "cat.СерииНоменклатуры",
-              "cat.Валюты",
+              "cat.currencies",
               "cch.ПраваПользователей",
               "doc.КомплектацияНоменклатуры",
               "cat.НастройкаИнтервалов",
@@ -1100,7 +1144,7 @@
               "enm.ПорядокПризнанияРасходовПоНДС",
               "doc.ЧекККМ",
               "enm.СпособыОткрытияФайлаНаПросмотр",
-              "cat.ТипыЦенНоменклатуры",
+              "cat.nom_prices_types",
               "enm.СводныеСостоянияЭД",
               "enm.СостояниеОбъектаСогласования",
               "enm.ПриоритетыОбъектовОбмена",
@@ -1129,7 +1173,7 @@
               "doc.ОстаткиЕГАИС",
               "doc.ПереоценкаТоваровОтданныхНаКомиссию",
               "enm.ВидыОперацийПоступлениеБезналичныхДенежныхСредств",
-              "enm.ВедениеВзаиморасчетовПоДоговорам",
+              "enm.mutual_contract_settlements",
               "doc.КорректировкаСерийИХарактеристикТоваров",
               "enm.СостоянияСобытий",
               "doc.ПлатежныйОрдерСписаниеДенежныхСредств",
@@ -1141,7 +1185,7 @@
               "enm.ВариантыОтображенияОтчетов",
               "enm.ТипыСтруктурныхЕдиниц",
               "enm.ВариантРеализации",
-              "cat.ЕдиницыИзмерения",
+              "cat.nom_units",
               "enm.ЮрФизЛицо",
               "doc.УстановкаДиапазоновБазовыхЦен",
               "enm.ОжидаемоеДействиеЭД",
@@ -1187,7 +1231,7 @@
               "doc.РегистрацияОплатыОтПокупателейДляНДС",
               "cat.КлассификаторТНВЭД",
               "cat.УчетныеЗаписиЭлектронногоОбмена",
-              "enm.ТипыКонтактнойИнформации",
+              "enm.contact_information_types",
               "enm.СтатусыПартийТоваров",
               "enm.ВидыДвиженийПриходРасход",
               "cat.ИнформационныеКарты",
@@ -1212,7 +1256,7 @@
               "enm.ВидыОперацийУстановкаТиповЦенПоГруппамНоменклатурыДляПокупателей",
               "enm.РезультатыБизнесПроцессаСогласование",
               "cat.ТомаХраненияФайлов",
-              "cat.КонтактныеЛицаКонтрагентов",
+              "cat.contact_persons_partners",
               "cat.КатегорииОбъектов",
               "doc.УсловияПоставокПоДоговорамКонтрагентов",
               "doc.Доверенность",
@@ -1222,7 +1266,7 @@
               "doc.Опрос",
               "enm.РежимОтбораДокументов",
               "doc.ОплатаОтПокупателяПлатежнойКартой",
-              "enm.ВидыДоговоровКонтрагентов",
+              "enm.contract_kinds",
               "cat.СтатьиЗатрат",
               "enm.ВидыОперацийЗаявкиНаРасходование",
               "cat.СоглашенияОбИспользованииЭД",
@@ -1240,7 +1284,7 @@
               "doc.ИсходящийЗапросКаталога",
               "doc.ВходящийАкцептЗаказа",
               "doc.ПоступлениеТоваровУслуг",
-              "cat.ВидыНоменклатуры",
+              "cat.nom_kinds",
               "cat.СвойстваНоменклатурыЭлектронногоОбмена",
               "enm.ИсточникиПравилДляОбменаДанными",
               "doc.ВходящийТоварКРаботе",
@@ -1266,10 +1310,10 @@
               "doc.ОтражениеПоступленияТоваровИУслугНДС",
               "enm.ТипыКорпусов",
               "enm.РасчетыВозврат",
-              "cat.НоменклатурныеГруппы",
+              "cat.nom_groups",
               "doc.ТребованиеНакладная",
               "bp.ПереоценкаТоваровАТТ",
-              "cat.ХарактеристикиНоменклатуры",
+              "cat.characteristics",
               "doc.РегистрацияОплатыНДСВБюджет",
               "enm.ВидыОперацийПланируемоеПоступлениеДС",
               "cat.Регионы",
@@ -1280,7 +1324,7 @@
               "enm.ВидыОперацийРеализацияТоваров",
               "doc.КорректировкаПоступления",
               "enm.СтатусыСоглашенийЭД",
-              "doc.УстановкаЦенНоменклатуры",
+              "doc.nom_prices_setup",
               "enm.ТООшибкиЭВ",
               "enm.ВидыТекстовЭлектронныхПисем",
               "cat.ГруппыСобытий",
@@ -1431,10 +1475,10 @@
               "tooltip": "",
               "type": {
                 "types": [
-                  "cat.Организации",
+                  "cat.organizations",
                   "cat.users",
-                  "cat.Подразделения",
-                  "cat.Контрагенты",
+                  "cat.divisions",
+                  "cat.partners",
                   "cat.Склады",
                   "cat.ФизическиеЛица",
                   "cat.Кассы",
@@ -1486,14 +1530,14 @@
       "main_presentation_name": true,
       "code_length": 9,
       "fields": {
-        "ВалютаДенежныхСредств": {
+        "funds_currency": {
           "synonym": "Валюта денежных средств",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
@@ -1505,7 +1549,7 @@
           "mandatory": true,
           "type": {
             "types": [
-              "cat.Организации"
+              "cat.organizations"
             ],
             "is_ref": true
           }
@@ -1582,7 +1626,7 @@
       },
       "cachable": "ram"
     },
-    "КлассификаторЕдиницИзмерения": {
+    "units": {
       "name": false,
       "splitted": null,
       "synonym": "Классификатор единиц измерения",
@@ -1781,7 +1825,7 @@
       },
       "cachable": "ram"
     },
-    "КонтактныеЛицаКонтрагентов": {
+    "contact_persons_partners": {
       "name": false,
       "splitted": null,
       "synonym": "Контактные лица контрагентов",
@@ -1851,7 +1895,7 @@
           "mandatory": true,
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
@@ -1861,7 +1905,7 @@
       },
       "cachable": "ram"
     },
-    "Контрагенты": {
+    "partners": {
       "name": false,
       "splitted": null,
       "synonym": "Контрагенты",
@@ -1886,7 +1930,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
@@ -1975,7 +2019,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.КонтактныеЛицаКонтрагентов"
+              "cat.contact_persons_partners"
             ],
             "is_ref": true
           }
@@ -1987,7 +2031,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.БанковскиеСчета"
+              "cat.bank_accounts"
             ],
             "is_ref": true
           }
@@ -2004,14 +2048,14 @@
             "is_ref": true
           }
         },
-        "ОсновнойДоговорКонтрагента": {
+        "main_contract": {
           "synonym": "Основной договор контрагента",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ДоговорыКонтрагентов"
+              "cat.contracts"
             ],
             "is_ref": true
           }
@@ -2101,7 +2145,7 @@
           "tooltip": "",
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
@@ -2132,7 +2176,7 @@
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.КонтактныеЛицаКонтрагентов"
+                  "cat.contact_persons_partners"
                 ],
                 "is_ref": true
               }
@@ -2161,7 +2205,7 @@
       },
       "cachable": "ram"
     },
-    "Номенклатура": {
+    "nom": {
       "name": false,
       "splitted": null,
       "synonym": "Номенклатура",
@@ -2202,14 +2246,14 @@
             "str_len": 25
           }
         },
-        "БазоваяЕдиницаИзмерения": {
+        "base_unit": {
           "synonym": "Базовая единица измерения",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.КлассификаторЕдиницИзмерения"
+              "cat.units"
             ],
             "is_ref": true
           }
@@ -2241,19 +2285,19 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ЕдиницыИзмерения"
+              "cat.nom_units"
             ],
             "is_ref": true
           }
         },
-        "ЕдиницаХраненияОстатков": {
+        "storage_unit": {
           "synonym": "Единица хранения остатков",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ЕдиницыИзмерения"
+              "cat.nom_units"
             ],
             "is_ref": true
           }
@@ -2279,14 +2323,14 @@
             ]
           }
         },
-        "НоменклатурнаяГруппа": {
+        "nom_group": {
           "synonym": "Номенклатурная группа",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.НоменклатурныеГруппы"
+              "cat.nom_groups"
             ],
             "is_ref": true
           }
@@ -2337,14 +2381,14 @@
             ]
           }
         },
-        "ВидНоменклатуры": {
+        "nom_kind": {
           "synonym": "Вид номенклатуры",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ВидыНоменклатуры"
+              "cat.nom_kinds"
             ],
             "is_ref": true
           }
@@ -2388,31 +2432,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ЕдиницыИзмерения"
-            ],
-            "is_ref": true
-          }
-        },
-        "ПроизводительИмпортерАлкогольнойПродукции": {
-          "synonym": "Производитель (импортер) алкогольной продукции",
-          "multiline_mode": false,
-          "tooltip": "Используемый при составлении деклараций по алкоголю производитель (для отечественной) или импортер (для импортной алкогольной продукции). Может отличаться от производителя номенклатурной позиции.",
-          "choice_groups_elm": "elm",
-          "type": {
-            "types": [
-              "cat.Контрагенты"
-            ],
-            "is_ref": true
-          }
-        },
-        "ВидАлкогольнойПродукцииЕГАИС": {
-          "synonym": "Вид алкогольной продукции",
-          "multiline_mode": false,
-          "tooltip": "Вид алкогольной продукции, используемый в журнале учета объема розничной продажи алкогольной продукции",
-          "choice_groups_elm": "elm",
-          "type": {
-            "types": [
-              "cat.ВидыАлкогольнойПродукции"
+              "cat.nom_units"
             ],
             "is_ref": true
           }
@@ -2424,7 +2444,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
@@ -2435,7 +2455,7 @@
           "tooltip": "",
           "type": {
             "types": [
-              "cat.Номенклатура"
+              "cat.nom"
             ],
             "is_ref": true
           }
@@ -2445,7 +2465,7 @@
       },
       "cachable": "ram"
     },
-    "НоменклатурныеГруппы": {
+    "nom_groups": {
       "name": false,
       "splitted": null,
       "synonym": "Номенклатурные группы",
@@ -2462,26 +2482,26 @@
       "main_presentation_name": true,
       "code_length": 9,
       "fields": {
-        "ЕдиницаХраненияОстатков": {
+        "storage_unit": {
           "synonym": "Единица хранения остатков",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ЕдиницыИзмерения"
+              "cat.nom_units"
             ],
             "is_ref": true
           }
         },
-        "БазоваяЕдиницаИзмерения": {
+        "base_unit": {
           "synonym": "Базовая единица измерения",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.КлассификаторЕдиницИзмерения"
+              "cat.units"
             ],
             "is_ref": true
           }
@@ -2504,7 +2524,7 @@
           "tooltip": "",
           "type": {
             "types": [
-              "cat.НоменклатурныеГруппы"
+              "cat.nom_groups"
             ],
             "is_ref": true
           }
@@ -2546,7 +2566,7 @@
       },
       "cachable": "ram"
     },
-    "Организации": {
+    "organizations": {
       "name": false,
       "splitted": null,
       "synonym": "Организации",
@@ -2669,7 +2689,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.БанковскиеСчета"
+              "cat.bank_accounts"
             ],
             "is_ref": true
           }
@@ -2734,7 +2754,7 @@
       },
       "cachable": "ram"
     },
-    "Подразделения": {
+    "divisions": {
       "name": false,
       "splitted": null,
       "synonym": "Подразделения",
@@ -2757,7 +2777,7 @@
           "tooltip": "",
           "type": {
             "types": [
-              "cat.Подразделения"
+              "cat.divisions"
             ],
             "is_ref": true
           }
@@ -3129,7 +3149,7 @@
           "mandatory": true,
           "type": {
             "types": [
-              "cat.Номенклатура"
+              "cat.nom"
             ],
             "is_ref": true
           }
@@ -3162,7 +3182,7 @@
           "mandatory": true,
           "type": {
             "types": [
-              "cat.Номенклатура"
+              "cat.nom"
             ],
             "is_ref": true
           }
@@ -3207,19 +3227,19 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ТипыЦенНоменклатуры"
+              "cat.nom_prices_types"
             ],
             "is_ref": true
           }
         },
-        "Подразделение": {
+        "department": {
           "synonym": "Подразделение",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Подразделения"
+              "cat.divisions"
             ],
             "is_ref": true
           }
@@ -3382,14 +3402,14 @@
       "main_presentation_name": true,
       "code_length": 9,
       "fields": {
-        "Валюта": {
+        "currency": {
           "synonym": "Валюта",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
@@ -3404,7 +3424,7 @@
             ]
           }
         },
-        "ПроцентСкидкиНаценки": {
+        "discount_percent": {
           "synonym": "Процент скидки наценки",
           "multiline_mode": false,
           "tooltip": "",
@@ -3577,7 +3597,7 @@
       },
       "cachable": "ram"
     },
-    "ТипыЦенНоменклатуры": {
+    "nom_prices_types": {
       "name": false,
       "splitted": null,
       "synonym": "Типы цен номенклатуры",
@@ -3594,14 +3614,14 @@
       "main_presentation_name": true,
       "code_length": 9,
       "fields": {
-        "ВалютаЦены": {
+        "price_currency": {
           "synonym": "Валюта цены по умолчанию",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
@@ -3613,7 +3633,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ТипыЦенНоменклатуры"
+              "cat.nom_prices_types"
             ],
             "is_ref": true
           }
@@ -3628,7 +3648,7 @@
             ]
           }
         },
-        "ПроцентСкидкиНаценки": {
+        "discount_percent": {
           "synonym": "Процент скидки или наценки по умолчанию",
           "multiline_mode": false,
           "tooltip": "",
@@ -3717,14 +3737,14 @@
       "main_presentation_name": true,
       "code_length": 9,
       "fields": {
-        "ВалютаЦены": {
+        "price_currency": {
           "synonym": "Валюта цены по умолчанию",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
@@ -3746,7 +3766,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ТипыЦенНоменклатуры"
+              "cat.nom_prices_types"
             ],
             "is_ref": true
           }
@@ -3780,7 +3800,7 @@
           "mandatory": true,
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
@@ -3912,7 +3932,7 @@
       },
       "cachable": "ram"
     },
-    "ХарактеристикиНоменклатуры": {
+    "characteristics": {
       "name": false,
       "splitted": null,
       "synonym": "Характеристики номенклатуры",
@@ -3935,7 +3955,7 @@
           "mandatory": true,
           "type": {
             "types": [
-              "cat.Номенклатура"
+              "cat.nom"
             ],
             "is_ref": true
           }
@@ -3992,7 +4012,7 @@
     }
   },
   "doc": {
-    "ЗаказПокупателя": {
+    "buyers_order": {
       "name": false,
       "splitted": null,
       "synonym": "Заказ покупателя",
@@ -4019,14 +4039,14 @@
             "str_len": 0
           }
         },
-        "ВалютаДокумента": {
+        "doc_currency": {
           "synonym": "Валюта документа",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
@@ -4053,14 +4073,14 @@
             "date_part": "date"
           }
         },
-        "ДоговорКонтрагента": {
+        "contract": {
           "synonym": "Договор контрагента",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ДоговорыКонтрагентов"
+              "cat.contracts"
             ],
             "is_ref": true
           }
@@ -4098,14 +4118,14 @@
             "str_len": 0
           }
         },
-        "Контрагент": {
+        "partner": {
           "synonym": "Контрагент",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
@@ -4134,14 +4154,14 @@
             "fraction_figits": 4
           }
         },
-        "Организация": {
+        "organization": {
           "synonym": "Организация",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Организации"
+              "cat.organizations"
             ],
             "is_ref": true
           }
@@ -4158,14 +4178,14 @@
             "is_ref": true
           }
         },
-        "Подразделение": {
+        "department": {
           "synonym": "Подразделение",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Подразделения"
+              "cat.divisions"
             ],
             "is_ref": true
           }
@@ -4177,7 +4197,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.БанковскиеСчета",
+              "cat.bank_accounts",
               "cat.Кассы"
             ],
             "is_ref": true
@@ -4206,7 +4226,7 @@
             ]
           }
         },
-        "СуммаДокумента": {
+        "doc_amount": {
           "synonym": "Сумма документа",
           "multiline_mode": false,
           "tooltip": "",
@@ -4225,7 +4245,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ТипыЦенНоменклатуры"
+              "cat.nom_prices_types"
             ],
             "is_ref": true
           }
@@ -4247,7 +4267,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
@@ -4259,7 +4279,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.КонтактныеЛицаКонтрагентов"
+              "cat.contact_persons_partners"
             ],
             "is_ref": true
           }
@@ -4308,26 +4328,26 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
         }
       },
       "tabular_sections": {
-        "Товары": {
+        "goods": {
           "name": "Товары",
           "synonym": "Товары",
           "tooltip": "",
           "fields": {
-            "ЕдиницаИзмерения": {
+            "unit": {
               "synonym": "Единица измерения",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ЕдиницыИзмерения"
+                  "cat.nom_units"
                 ],
                 "is_ref": true
               }
@@ -4339,7 +4359,7 @@
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ЕдиницыИзмерения"
+                  "cat.nom_units"
                 ],
                 "is_ref": true
               }
@@ -4380,14 +4400,14 @@
                 "fraction_figits": 3
               }
             },
-            "Номенклатура": {
+            "nom": {
               "synonym": "Номенклатура",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.Номенклатура"
+                  "cat.nom"
                 ],
                 "is_ref": true
               }
@@ -4404,7 +4424,7 @@
                 "fraction_figits": 2
               }
             },
-            "ПроцентСкидкиНаценки": {
+            "discount_percent": {
               "synonym": "Процент скидки или наценки",
               "multiline_mode": false,
               "tooltip": "",
@@ -4442,7 +4462,7 @@
                 "is_ref": true
               }
             },
-            "Сумма": {
+            "amount": {
               "synonym": "Сумма",
               "multiline_mode": false,
               "tooltip": "",
@@ -4454,7 +4474,7 @@
                 "fraction_figits": 2
               }
             },
-            "СуммаНДС": {
+            "vat_amount": {
               "synonym": "Сумма НДС",
               "multiline_mode": false,
               "tooltip": "",
@@ -4466,14 +4486,14 @@
                 "fraction_figits": 2
               }
             },
-            "ХарактеристикаНоменклатуры": {
+            "nom_characteristic": {
               "synonym": "Характеристика номенклатуры",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ХарактеристикиНоменклатуры"
+                  "cat.characteristics"
                 ],
                 "is_ref": true
               }
@@ -4561,14 +4581,14 @@
           "synonym": "Возвратная тара",
           "tooltip": "",
           "fields": {
-            "Номенклатура": {
+            "nom": {
               "synonym": "Номенклатура",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.Номенклатура"
+                  "cat.nom"
                 ],
                 "is_ref": true
               }
@@ -4597,7 +4617,7 @@
                 "fraction_figits": 2
               }
             },
-            "Сумма": {
+            "amount": {
               "synonym": "Сумма",
               "multiline_mode": false,
               "tooltip": "",
@@ -4625,7 +4645,7 @@
             }
           }
         },
-        "Услуги": {
+        "services": {
           "name": "Услуги",
           "synonym": "Услуги",
           "tooltip": "",
@@ -4665,7 +4685,7 @@
                 "fraction_figits": 2
               }
             },
-            "Сумма": {
+            "amount": {
               "synonym": "Сумма",
               "multiline_mode": false,
               "tooltip": "",
@@ -4689,7 +4709,7 @@
                 "is_ref": true
               }
             },
-            "СуммаНДС": {
+            "vat_amount": {
               "synonym": "Сумма НДС",
               "multiline_mode": false,
               "tooltip": "",
@@ -4701,19 +4721,19 @@
                 "fraction_figits": 2
               }
             },
-            "Номенклатура": {
+            "nom": {
               "synonym": "Номенклатура",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.Номенклатура"
+                  "cat.nom"
                 ],
                 "is_ref": true
               }
             },
-            "ПроцентСкидкиНаценки": {
+            "discount_percent": {
               "synonym": "Процент скидки или наценки",
               "multiline_mode": false,
               "tooltip": "",
@@ -4772,26 +4792,26 @@
           "synonym": "Состав набора",
           "tooltip": "",
           "fields": {
-            "Номенклатура": {
+            "nom": {
               "synonym": "Номенклатура",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.Номенклатура"
+                  "cat.nom"
                 ],
                 "is_ref": true
               }
             },
-            "ХарактеристикаНоменклатуры": {
+            "nom_characteristic": {
               "synonym": "Характеристика номенклатуры",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ХарактеристикиНоменклатуры"
+                  "cat.characteristics"
                 ],
                 "is_ref": true
               }
@@ -4808,14 +4828,14 @@
                 "fraction_figits": 3
               }
             },
-            "ЕдиницаИзмерения": {
+            "unit": {
               "synonym": "Единица измерения",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ЕдиницыИзмерения"
+                  "cat.nom_units"
                 ],
                 "is_ref": true
               }
@@ -4859,7 +4879,7 @@
           }
         }
       },
-      "cachable": "doc_remote"
+      "cachable": "doc"
     },
     "ЗакрытиеЗаказовПокупателей": {
       "name": false,
@@ -4900,14 +4920,14 @@
             "is_ref": true
           }
         },
-        "Подразделение": {
+        "department": {
           "synonym": "Подразделение",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Подразделения"
+              "cat.divisions"
             ],
             "is_ref": true
           }
@@ -4941,14 +4961,14 @@
           "synonym": "Заказы",
           "tooltip": "",
           "fields": {
-            "ЗаказПокупателя": {
+            "buyers_order": {
               "synonym": "Заказ покупателя",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "doc.ЗаказПокупателя",
+                  "doc.buyers_order",
                   "doc.ВнутреннийЗаказ"
                 ],
                 "is_ref": true
@@ -4987,14 +5007,14 @@
       "main_presentation_name": false,
       "code_length": 11,
       "fields": {
-        "Организация": {
+        "organization": {
           "synonym": "Организация",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Организации"
+              "cat.organizations"
             ],
             "is_ref": true
           }
@@ -5006,19 +5026,19 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
         },
-        "Подразделение": {
+        "department": {
           "synonym": "Подразделение",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Подразделения"
+              "cat.divisions"
             ],
             "is_ref": true
           }
@@ -5078,14 +5098,14 @@
             "is_ref": true
           }
         },
-        "ВалютаДокумента": {
+        "doc_currency": {
           "synonym": "Валюта документа",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
@@ -5121,19 +5141,19 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
         },
-        "ДоговорКонтрагента": {
+        "contract": {
           "synonym": "Договор контрагента",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ДоговорыКонтрагентов"
+              "cat.contracts"
             ],
             "is_ref": true
           }
@@ -5145,7 +5165,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "doc.ЗаказПокупателя",
+              "doc.buyers_order",
               "doc.ЗаказПоставщику",
               "doc.СчетНаОплатуПоставщика",
               "doc.СчетНаОплатуПокупателю"
@@ -5170,14 +5190,14 @@
           "synonym": "Суммы долга",
           "tooltip": "",
           "fields": {
-            "ДоговорКонтрагента": {
+            "contract": {
               "synonym": "Договор контрагента",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ДоговорыКонтрагентов"
+                  "cat.contracts"
                 ],
                 "is_ref": true
               }
@@ -5191,7 +5211,7 @@
                 "types": [
                   "doc.ВозвратТоваровПоставщикуИзНТТ",
                   "doc.ВозвратТоваровОтПокупателя",
-                  "doc.ЗаказПокупателя",
+                  "doc.buyers_order",
                   "doc.ПриходныйКассовыйОрдер",
                   "doc.ИнкассовоеПоручениеПолученное",
                   "doc.ПлатежноеПоручениеИсходящее",
@@ -5221,7 +5241,7 @@
                 "is_ref": true
               }
             },
-            "Сумма": {
+            "amount": {
               "synonym": "Сумма",
               "multiline_mode": false,
               "tooltip": "",
@@ -5366,14 +5386,14 @@
       "main_presentation_name": false,
       "code_length": 11,
       "fields": {
-        "ЗаказПокупателя": {
+        "buyers_order": {
           "synonym": "Заказ покупателя",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "doc.ЗаказПокупателя"
+              "doc.buyers_order"
             ],
             "is_ref": true
           }
@@ -5389,7 +5409,7 @@
             "str_len": 0
           }
         },
-        "СуммаДокумента": {
+        "doc_amount": {
           "synonym": "Сумма документа",
           "multiline_mode": false,
           "tooltip": "",
@@ -5408,7 +5428,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ТипыЦенНоменклатуры"
+              "cat.nom_prices_types"
             ],
             "is_ref": true
           }
@@ -5440,7 +5460,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.БанковскиеСчета",
+              "cat.bank_accounts",
               "cat.Кассы"
             ],
             "is_ref": true
@@ -5516,14 +5536,14 @@
             "is_ref": true
           }
         },
-        "Контрагент": {
+        "partner": {
           "synonym": "Контрагент",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
@@ -5540,33 +5560,33 @@
             "is_ref": true
           }
         },
-        "Организация": {
+        "organization": {
           "synonym": "Организация",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Организации"
+              "cat.organizations"
             ],
             "is_ref": true
           }
         }
       },
       "tabular_sections": {
-        "Товары": {
+        "goods": {
           "name": "Товары",
           "synonym": "Товары",
           "tooltip": "",
           "fields": {
-            "ЕдиницаИзмерения": {
+            "unit": {
               "synonym": "Единица измерения",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ЕдиницыИзмерения"
+                  "cat.nom_units"
                 ],
                 "is_ref": true
               }
@@ -5578,7 +5598,7 @@
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ЕдиницыИзмерения"
+                  "cat.nom_units"
                 ],
                 "is_ref": true
               }
@@ -5635,14 +5655,14 @@
                 "fraction_figits": 3
               }
             },
-            "Номенклатура": {
+            "nom": {
               "synonym": "Номенклатура",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.Номенклатура"
+                  "cat.nom"
                 ],
                 "is_ref": true
               }
@@ -5671,7 +5691,7 @@
                 "fraction_figits": 2
               }
             },
-            "ПроцентСкидкиНаценки": {
+            "discount_percent": {
               "synonym": "Процент скидки или наценки",
               "multiline_mode": false,
               "tooltip": "",
@@ -5709,7 +5729,7 @@
                 "is_ref": true
               }
             },
-            "Сумма": {
+            "amount": {
               "synonym": "Сумма",
               "multiline_mode": false,
               "tooltip": "",
@@ -5721,7 +5741,7 @@
                 "fraction_figits": 2
               }
             },
-            "СуммаНДС": {
+            "vat_amount": {
               "synonym": "Сумма НДС",
               "multiline_mode": false,
               "tooltip": "",
@@ -5745,14 +5765,14 @@
                 "is_ref": true
               }
             },
-            "ХарактеристикаНоменклатуры": {
+            "nom_characteristic": {
               "synonym": "Характеристика номенклатуры",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ХарактеристикиНоменклатуры"
+                  "cat.characteristics"
                 ],
                 "is_ref": true
               }
@@ -5788,14 +5808,14 @@
           "synonym": "Возвратная тара",
           "tooltip": "",
           "fields": {
-            "Номенклатура": {
+            "nom": {
               "synonym": "Номенклатура",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.Номенклатура"
+                  "cat.nom"
                 ],
                 "is_ref": true
               }
@@ -5824,7 +5844,7 @@
                 "fraction_figits": 2
               }
             },
-            "Сумма": {
+            "amount": {
               "synonym": "Сумма",
               "multiline_mode": false,
               "tooltip": "",
@@ -5852,7 +5872,7 @@
             }
           }
         },
-        "Услуги": {
+        "services": {
           "name": "Услуги",
           "synonym": "Услуги",
           "tooltip": "",
@@ -5881,7 +5901,7 @@
                 "fraction_figits": 2
               }
             },
-            "Сумма": {
+            "amount": {
               "synonym": "Сумма",
               "multiline_mode": false,
               "tooltip": "",
@@ -5905,7 +5925,7 @@
                 "is_ref": true
               }
             },
-            "СуммаНДС": {
+            "vat_amount": {
               "synonym": "Сумма НДС",
               "multiline_mode": false,
               "tooltip": "",
@@ -5917,14 +5937,14 @@
                 "fraction_figits": 2
               }
             },
-            "Номенклатура": {
+            "nom": {
               "synonym": "Номенклатура",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.Номенклатура"
+                  "cat.nom"
                 ],
                 "is_ref": true
               }
@@ -5940,7 +5960,7 @@
                 "str_len": 0
               }
             },
-            "ПроцентСкидкиНаценки": {
+            "discount_percent": {
               "synonym": "Процент скидки или наценки",
               "multiline_mode": false,
               "tooltip": "",
@@ -6021,7 +6041,7 @@
           "type": {
             "types": [
               "doc.ВозвратТоваровПоставщикуИзНТТ",
-              "doc.ЗаказПокупателя",
+              "doc.buyers_order",
               "doc.ПланируемоеПоступлениеДенежныхСредств",
               "doc.ВозвратТоваровПоставщику",
               "doc.ОтчетКомиссионераОПродажах",
@@ -6053,14 +6073,14 @@
             "str_len": 30
           }
         },
-        "Организация": {
+        "organization": {
           "synonym": "Организация",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Организации"
+              "cat.organizations"
             ],
             "is_ref": true
           }
@@ -6072,19 +6092,19 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.БанковскиеСчета"
+              "cat.bank_accounts"
             ],
             "is_ref": true
           }
         },
-        "Контрагент": {
+        "partner": {
           "synonym": "Плательщик",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
@@ -6096,24 +6116,24 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.БанковскиеСчета"
+              "cat.bank_accounts"
             ],
             "is_ref": true
           }
         },
-        "ДоговорКонтрагента": {
+        "contract": {
           "synonym": "Договор контрагента",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ДоговорыКонтрагентов"
+              "cat.contracts"
             ],
             "is_ref": true
           }
         },
-        "СуммаДокумента": {
+        "doc_amount": {
           "synonym": "Сумма документа",
           "multiline_mode": false,
           "tooltip": "",
@@ -6125,14 +6145,14 @@
             "fraction_figits": 2
           }
         },
-        "ВалютаДокумента": {
+        "doc_currency": {
           "synonym": "Валюта документа",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
@@ -6245,14 +6265,14 @@
             ]
           }
         },
-        "Подразделение": {
+        "department": {
           "synonym": "Подразделение",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Подразделения"
+              "cat.divisions"
             ],
             "is_ref": true
           }
@@ -6280,14 +6300,14 @@
             "is_ref": true
           }
         },
-        "НоменклатурнаяГруппа": {
+        "nom_group": {
           "synonym": "Номенклатурная группа",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.НоменклатурныеГруппы"
+              "cat.nom_groups"
             ],
             "is_ref": true
           }
@@ -6299,7 +6319,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Подразделения"
+              "cat.divisions"
             ],
             "is_ref": true
           }
@@ -6323,14 +6343,14 @@
           "synonym": "Расшифровка платежа",
           "tooltip": "",
           "fields": {
-            "ДоговорКонтрагента": {
+            "contract": {
               "synonym": "Договор контрагента",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ДоговорыКонтрагентов"
+                  "cat.contracts"
                 ],
                 "is_ref": true
               }
@@ -6344,7 +6364,7 @@
                 "types": [
                   "doc.ВозвратТоваровПоставщикуИзНТТ",
                   "doc.ВозвратТоваровОтПокупателя",
-                  "doc.ЗаказПокупателя",
+                  "doc.buyers_order",
                   "doc.ПриходныйКассовыйОрдер",
                   "doc.ИнкассовоеПоручениеПолученное",
                   "doc.ПлатежноеПоручениеИсходящее",
@@ -6410,7 +6430,7 @@
                 "fraction_figits": 0
               }
             },
-            "СуммаВзаиморасчетов": {
+            "amount_mutual": {
               "synonym": "Сумма взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -6434,7 +6454,7 @@
                 "is_ref": true
               }
             },
-            "СуммаНДС": {
+            "vat_amount": {
               "synonym": "Сумма НДС",
               "multiline_mode": false,
               "tooltip": "",
@@ -6617,14 +6637,14 @@
       "main_presentation_name": false,
       "code_length": 11,
       "fields": {
-        "ВалютаДокумента": {
+        "doc_currency": {
           "synonym": "Валюта документа",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
@@ -6663,14 +6683,14 @@
             "date_part": "date"
           }
         },
-        "ДоговорКонтрагента": {
+        "contract": {
           "synonym": "Договор контрагента",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ДоговорыКонтрагентов"
+              "cat.contracts"
             ],
             "is_ref": true
           }
@@ -6749,14 +6769,14 @@
             "str_len": 0
           }
         },
-        "Контрагент": {
+        "partner": {
           "synonym": "Получатель",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
@@ -6804,14 +6824,14 @@
             ]
           }
         },
-        "Организация": {
+        "organization": {
           "synonym": "Организация",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Организации"
+              "cat.organizations"
             ],
             "is_ref": true
           }
@@ -6949,7 +6969,7 @@
             "is_ref": true
           }
         },
-        "СуммаДокумента": {
+        "doc_amount": {
           "synonym": "Сумма документа",
           "multiline_mode": false,
           "tooltip": "",
@@ -6968,7 +6988,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.БанковскиеСчета"
+              "cat.bank_accounts"
             ],
             "is_ref": true
           }
@@ -6980,7 +7000,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.БанковскиеСчета"
+              "cat.bank_accounts"
             ],
             "is_ref": true
           }
@@ -7029,14 +7049,14 @@
             "is_ref": true
           }
         },
-        "Подразделение": {
+        "department": {
           "synonym": "Подразделение",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Подразделения"
+              "cat.divisions"
             ],
             "is_ref": true
           }
@@ -7048,7 +7068,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
@@ -7116,14 +7136,14 @@
           "synonym": "Расшифровка платежа",
           "tooltip": "",
           "fields": {
-            "ДоговорКонтрагента": {
+            "contract": {
               "synonym": "Договор контрагента",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ДоговорыКонтрагентов"
+                  "cat.contracts"
                 ],
                 "is_ref": true
               }
@@ -7137,7 +7157,7 @@
                 "types": [
                   "doc.ВозвратТоваровПоставщикуИзНТТ",
                   "doc.ВозвратТоваровОтПокупателя",
-                  "doc.ЗаказПокупателя",
+                  "doc.buyers_order",
                   "doc.ПриходныйКассовыйОрдер",
                   "doc.ИнкассовоеПоручениеПолученное",
                   "doc.ПлатежноеПоручениеИсходящее",
@@ -7203,7 +7223,7 @@
                 "fraction_figits": 0
               }
             },
-            "СуммаВзаиморасчетов": {
+            "amount_mutual": {
               "synonym": "Сумма взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -7227,7 +7247,7 @@
                 "is_ref": true
               }
             },
-            "СуммаНДС": {
+            "vat_amount": {
               "synonym": "Сумма НДС",
               "multiline_mode": false,
               "tooltip": "",
@@ -7432,7 +7452,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "doc.ЗаказПокупателя",
+              "doc.buyers_order",
               "doc.ПлатежноеТребованиеВыставленное",
               "doc.ПланируемоеПоступлениеДенежныхСредств",
               "doc.ИнкассовоеПоручениеПереданное",
@@ -7443,14 +7463,14 @@
             "is_ref": true
           }
         },
-        "Организация": {
+        "organization": {
           "synonym": "Организация",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Организации"
+              "cat.organizations"
             ],
             "is_ref": true
           }
@@ -7462,19 +7482,19 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.БанковскиеСчета"
+              "cat.bank_accounts"
             ],
             "is_ref": true
           }
         },
-        "Контрагент": {
+        "partner": {
           "synonym": "Плательщик",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
@@ -7486,24 +7506,24 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.БанковскиеСчета"
+              "cat.bank_accounts"
             ],
             "is_ref": true
           }
         },
-        "ДоговорКонтрагента": {
+        "contract": {
           "synonym": "Договор контрагента",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ДоговорыКонтрагентов"
+              "cat.contracts"
             ],
             "is_ref": true
           }
         },
-        "СуммаДокумента": {
+        "doc_amount": {
           "synonym": "Сумма документа",
           "multiline_mode": false,
           "tooltip": "",
@@ -7515,14 +7535,14 @@
             "fraction_figits": 2
           }
         },
-        "ВалютаДокумента": {
+        "doc_currency": {
           "synonym": "Валюта документа",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
@@ -7625,14 +7645,14 @@
             ]
           }
         },
-        "Подразделение": {
+        "department": {
           "synonym": "Подразделение",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Подразделения"
+              "cat.divisions"
             ],
             "is_ref": true
           }
@@ -7672,14 +7692,14 @@
             "is_ref": true
           }
         },
-        "НоменклатурнаяГруппа": {
+        "nom_group": {
           "synonym": "Номенклатурная группа",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.НоменклатурныеГруппы"
+              "cat.nom_groups"
             ],
             "is_ref": true
           }
@@ -7691,7 +7711,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Подразделения"
+              "cat.divisions"
             ],
             "is_ref": true
           }
@@ -7737,14 +7757,14 @@
           "synonym": "Расшифровка платежа",
           "tooltip": "",
           "fields": {
-            "ДоговорКонтрагента": {
+            "contract": {
               "synonym": "Договор контрагента",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ДоговорыКонтрагентов"
+                  "cat.contracts"
                 ],
                 "is_ref": true
               }
@@ -7758,7 +7778,7 @@
                 "types": [
                   "doc.ВозвратТоваровПоставщикуИзНТТ",
                   "doc.ВозвратТоваровОтПокупателя",
-                  "doc.ЗаказПокупателя",
+                  "doc.buyers_order",
                   "doc.ПриходныйКассовыйОрдер",
                   "doc.ИнкассовоеПоручениеПолученное",
                   "doc.ПлатежноеПоручениеИсходящее",
@@ -7824,7 +7844,7 @@
                 "fraction_figits": 0
               }
             },
-            "СуммаВзаиморасчетов": {
+            "amount_mutual": {
               "synonym": "Сумма взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -7848,7 +7868,7 @@
                 "is_ref": true
               }
             },
-            "СуммаНДС": {
+            "vat_amount": {
               "synonym": "Сумма НДС",
               "multiline_mode": false,
               "tooltip": "",
@@ -8062,14 +8082,14 @@
             "is_ref": true
           }
         },
-        "Организация": {
+        "organization": {
           "synonym": "Организация",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Организации"
+              "cat.organizations"
             ],
             "is_ref": true
           }
@@ -8081,19 +8101,19 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.БанковскиеСчета"
+              "cat.bank_accounts"
             ],
             "is_ref": true
           }
         },
-        "Контрагент": {
+        "partner": {
           "synonym": "Получатель",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Контрагенты"
+              "cat.partners"
             ],
             "is_ref": true
           }
@@ -8105,24 +8125,24 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.БанковскиеСчета"
+              "cat.bank_accounts"
             ],
             "is_ref": true
           }
         },
-        "ДоговорКонтрагента": {
+        "contract": {
           "synonym": "Договор контрагента",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ДоговорыКонтрагентов"
+              "cat.contracts"
             ],
             "is_ref": true
           }
         },
-        "СуммаДокумента": {
+        "doc_amount": {
           "synonym": "Сумма документа",
           "multiline_mode": false,
           "tooltip": "",
@@ -8134,14 +8154,14 @@
             "fraction_figits": 2
           }
         },
-        "ВалютаДокумента": {
+        "doc_currency": {
           "synonym": "Валюта документа",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
@@ -8244,14 +8264,14 @@
             ]
           }
         },
-        "Подразделение": {
+        "department": {
           "synonym": "Подразделение",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Подразделения"
+              "cat.divisions"
             ],
             "is_ref": true
           }
@@ -8297,7 +8317,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
@@ -8332,14 +8352,14 @@
           "synonym": "Расшифровка платежа",
           "tooltip": "",
           "fields": {
-            "ДоговорКонтрагента": {
+            "contract": {
               "synonym": "Договор контрагента",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ДоговорыКонтрагентов"
+                  "cat.contracts"
                 ],
                 "is_ref": true
               }
@@ -8353,7 +8373,7 @@
                 "types": [
                   "doc.ВозвратТоваровПоставщикуИзНТТ",
                   "doc.ВозвратТоваровОтПокупателя",
-                  "doc.ЗаказПокупателя",
+                  "doc.buyers_order",
                   "doc.ПриходныйКассовыйОрдер",
                   "doc.ИнкассовоеПоручениеПолученное",
                   "doc.ПлатежноеПоручениеИсходящее",
@@ -8419,7 +8439,7 @@
                 "fraction_figits": 0
               }
             },
-            "СуммаВзаиморасчетов": {
+            "amount_mutual": {
               "synonym": "Сумма взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -8443,7 +8463,7 @@
                 "is_ref": true
               }
             },
-            "СуммаНДС": {
+            "vat_amount": {
               "synonym": "Сумма НДС",
               "multiline_mode": false,
               "tooltip": "",
@@ -8626,14 +8646,14 @@
       "main_presentation_name": false,
       "code_length": 11,
       "fields": {
-        "Организация": {
+        "organization": {
           "synonym": "Организация",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Организации"
+              "cat.organizations"
             ],
             "is_ref": true
           }
@@ -8650,14 +8670,14 @@
             "is_ref": true
           }
         },
-        "Подразделение": {
+        "department": {
           "synonym": "Подразделение",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Подразделения"
+              "cat.divisions"
             ],
             "is_ref": true
           }
@@ -8674,7 +8694,7 @@
             "is_ref": true
           }
         },
-        "Контрагент": {
+        "partner": {
           "synonym": "Контрагент, подотчетник, касса ККМ",
           "multiline_mode": false,
           "tooltip": "",
@@ -8682,21 +8702,21 @@
           "type": {
             "types": [
               "cat.КассыККМ",
-              "cat.Контрагенты",
+              "cat.partners",
               "cat.Склады",
               "cat.ФизическиеЛица"
             ],
             "is_ref": true
           }
         },
-        "ДоговорКонтрагента": {
+        "contract": {
           "synonym": "Договор контрагента",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ДоговорыКонтрагентов"
+              "cat.contracts"
             ],
             "is_ref": true
           }
@@ -8708,24 +8728,24 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
         },
-        "ВалютаДокумента": {
+        "doc_currency": {
           "synonym": "Валюта документа",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
         },
-        "СуммаДокумента": {
+        "doc_amount": {
           "synonym": "Сумма документа",
           "multiline_mode": false,
           "tooltip": "",
@@ -8835,7 +8855,7 @@
           "type": {
             "types": [
               "doc.ДенежныйЧек",
-              "doc.ЗаказПокупателя",
+              "doc.buyers_order",
               "doc.РасходныйКассовыйОрдер",
               "doc.ПланируемоеПоступлениеДенежныхСредств",
               "doc.ВозвратТоваровПоставщику",
@@ -8886,7 +8906,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.БанковскиеСчета"
+              "cat.bank_accounts"
             ],
             "is_ref": true
           }
@@ -8966,14 +8986,14 @@
           "synonym": "Расшифровка платежа",
           "tooltip": "",
           "fields": {
-            "ДоговорКонтрагента": {
+            "contract": {
               "synonym": "Договор контрагента",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ДоговорыКонтрагентов"
+                  "cat.contracts"
                 ],
                 "is_ref": true
               }
@@ -8987,7 +9007,7 @@
                 "types": [
                   "doc.ВозвратТоваровПоставщикуИзНТТ",
                   "doc.ВозвратТоваровОтПокупателя",
-                  "doc.ЗаказПокупателя",
+                  "doc.buyers_order",
                   "doc.ПриходныйКассовыйОрдер",
                   "doc.ИнкассовоеПоручениеПолученное",
                   "doc.ПлатежноеПоручениеИсходящее",
@@ -9053,7 +9073,7 @@
                 "fraction_figits": 0
               }
             },
-            "СуммаВзаиморасчетов": {
+            "amount_mutual": {
               "synonym": "Сумма взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -9077,7 +9097,7 @@
                 "is_ref": true
               }
             },
-            "СуммаНДС": {
+            "vat_amount": {
               "synonym": "Сумма НДС",
               "multiline_mode": false,
               "tooltip": "",
@@ -9209,14 +9229,14 @@
       "main_presentation_name": false,
       "code_length": 11,
       "fields": {
-        "Организация": {
+        "organization": {
           "synonym": "Организация",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Организации"
+              "cat.organizations"
             ],
             "is_ref": true
           }
@@ -9233,14 +9253,14 @@
             "is_ref": true
           }
         },
-        "Подразделение": {
+        "department": {
           "synonym": "Подразделение",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Подразделения"
+              "cat.divisions"
             ],
             "is_ref": true
           }
@@ -9268,7 +9288,7 @@
             "str_len": 0
           }
         },
-        "Контрагент": {
+        "partner": {
           "synonym": "Контрагент, подотчетник, Касса ККМ",
           "multiline_mode": false,
           "tooltip": "",
@@ -9276,21 +9296,21 @@
           "type": {
             "types": [
               "cat.КассыККМ",
-              "cat.Контрагенты",
+              "cat.partners",
               "cat.Склады",
               "cat.ФизическиеЛица"
             ],
             "is_ref": true
           }
         },
-        "ДоговорКонтрагента": {
+        "contract": {
           "synonym": "договор контрагента",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.ДоговорыКонтрагентов"
+              "cat.contracts"
             ],
             "is_ref": true
           }
@@ -9302,24 +9322,24 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
         },
-        "ВалютаДокумента": {
+        "doc_currency": {
           "synonym": "Валюта документа",
           "multiline_mode": false,
           "tooltip": "",
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.Валюты"
+              "cat.currencies"
             ],
             "is_ref": true
           }
         },
-        "СуммаДокумента": {
+        "doc_amount": {
           "synonym": "Сумма документа",
           "multiline_mode": false,
           "tooltip": "",
@@ -9491,7 +9511,7 @@
           "choice_groups_elm": "elm",
           "type": {
             "types": [
-              "cat.БанковскиеСчета"
+              "cat.bank_accounts"
             ],
             "is_ref": true
           }
@@ -9549,14 +9569,14 @@
           "synonym": "Расшифровка платежа",
           "tooltip": "",
           "fields": {
-            "ДоговорКонтрагента": {
+            "contract": {
               "synonym": "Договор контрагента",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ДоговорыКонтрагентов"
+                  "cat.contracts"
                 ],
                 "is_ref": true
               }
@@ -9570,7 +9590,7 @@
                 "types": [
                   "doc.ВозвратТоваровПоставщикуИзНТТ",
                   "doc.ВозвратТоваровОтПокупателя",
-                  "doc.ЗаказПокупателя",
+                  "doc.buyers_order",
                   "doc.ПриходныйКассовыйОрдер",
                   "doc.ИнкассовоеПоручениеПолученное",
                   "doc.ПлатежноеПоручениеИсходящее",
@@ -9636,7 +9656,7 @@
                 "fraction_figits": 0
               }
             },
-            "СуммаВзаиморасчетов": {
+            "amount_mutual": {
               "synonym": "Сумма взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -9660,7 +9680,7 @@
                 "is_ref": true
               }
             },
-            "СуммаНДС": {
+            "vat_amount": {
               "synonym": "Сумма НДС",
               "multiline_mode": false,
               "tooltip": "",
@@ -9776,7 +9796,7 @@
       },
       "cachable": "doc_remote"
     },
-    "УстановкаЦенНоменклатуры": {
+    "nom_prices_setup": {
       "name": false,
       "splitted": null,
       "synonym": "Установка цен номенклатуры",
@@ -9838,31 +9858,31 @@
         }
       },
       "tabular_sections": {
-        "Товары": {
+        "goods": {
           "name": "Товары",
           "synonym": "Товары",
           "tooltip": "",
           "fields": {
-            "Номенклатура": {
+            "nom": {
               "synonym": "Номенклатура",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.Номенклатура"
+                  "cat.nom"
                 ],
                 "is_ref": true
               }
             },
-            "ХарактеристикаНоменклатуры": {
+            "nom_characteristic": {
               "synonym": "Характеристика номенклатуры",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ХарактеристикиНоменклатуры"
+                  "cat.characteristics"
                 ],
                 "is_ref": true
               }
@@ -9879,31 +9899,31 @@
                 "fraction_figits": 2
               }
             },
-            "Валюта": {
+            "currency": {
               "synonym": "Валюта",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.Валюты"
+                  "cat.currencies"
                 ],
                 "is_ref": true
               }
             },
-            "ЕдиницаИзмерения": {
+            "unit": {
               "synonym": "Единица измерения",
               "multiline_mode": false,
               "tooltip": "",
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ЕдиницыИзмерения"
+                  "cat.nom_units"
                 ],
                 "is_ref": true
               }
             },
-            "ПроцентСкидкиНаценки": {
+            "discount_percent": {
               "synonym": "Процент скидки (наценки)",
               "multiline_mode": false,
               "tooltip": "",
@@ -9922,7 +9942,7 @@
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ТипыЦенНоменклатуры"
+                  "cat.nom_prices_types"
                 ],
                 "is_ref": true
               }
@@ -9965,7 +9985,7 @@
               "choice_groups_elm": "elm",
               "type": {
                 "types": [
-                  "cat.ТипыЦенНоменклатуры"
+                  "cat.nom_prices_types"
                 ],
                 "is_ref": true
               }
@@ -9973,7 +9993,7 @@
           }
         }
       },
-      "cachable": "doc_remote"
+      "cachable": "doc"
     }
   },
   "ireg": {
@@ -10089,9 +10109,9 @@
               "doc.ДенежныйЧек",
               "doc.ВозвратТоваровОтПокупателя",
               "doc.ВходящийЗапросКаталога",
-              "doc.ЗаказПокупателя",
+              "doc.buyers_order",
               "doc.ПереоценкаВалютныхСредств",
-              "cat.Организации",
+              "cat.organizations",
               "doc.ВходящееИзвещение",
               "doc.ИнвентаризацияТоваровОтданныхНаКомиссию",
               "doc.ВнутреннееПеремещениеНаличныхДенежныхСредств",
@@ -10120,17 +10140,17 @@
               "doc.АккредитивПереданный",
               "doc.РеестрСчетов",
               "doc.ВнутреннийЗаказ",
-              "cat.ДоговорыКонтрагентов",
+              "cat.contracts",
               "doc.ВходящийАкцептНакладной",
               "doc.ВводНачальныхОстатковНДС",
               "doc.УстановкаТиповЦенПоГруппамНоменклатурыДляПокупателей",
               "doc.ПоступлениеТоваровУслугВНТТ",
-              "cat.Номенклатура",
+              "cat.nom",
               "doc.КорректировкаСтоимостиСписанияТоваров",
               "doc.КорректировкаКачестваТоваров",
               "doc.ВходящийЗапросПрайсЛиста",
               "doc.СписаниеТоваров",
-              "cat.Контрагенты",
+              "cat.partners",
               "doc.ОтчетКомитентуОПродажах",
               "doc.КорректировкаВнутреннегоЗаказа",
               "doc.ИнвентаризацияТоваровНаСкладе",
@@ -10174,7 +10194,7 @@
               "doc.УстановкаПороговНакопительныхСкидок",
               "doc.РегистрацияОплатыОтПокупателейДляНДС",
               "doc.КорректировкаЗаказаПокупателя",
-              "cat.КонтактныеЛицаКонтрагентов",
+              "cat.contact_persons_partners",
               "doc.УсловияПоставокПоДоговорамКонтрагентов",
               "doc.Доверенность",
               "doc.ИсходящийЗаказ",
@@ -10192,12 +10212,12 @@
               "doc.ОбъявлениеНаВзносНаличными",
               "doc.СчетФактураПолученный",
               "doc.ОтражениеПоступленияТоваровИУслугНДС",
-              "cat.НоменклатурныеГруппы",
+              "cat.nom_groups",
               "doc.ТребованиеНакладная",
               "doc.РегистрацияОплатыНДСВБюджет",
               "doc.ABCКлассификацияПокупателей",
               "doc.ВводНачальныхОстатковПоВзаиморасчетам",
-              "doc.УстановкаЦенНоменклатуры",
+              "doc.nom_prices_setup",
               "doc.КлассификацияПокупателейПоСтадиямВзаимоотношений",
               "doc.ОтчетОРозничныхПродажах",
               "cat.ЛичныеКонтакты",
@@ -10259,17 +10279,17 @@
           },
           "type": {
             "types": [
-              "doc.ЗаказПокупателя",
-              "cat.Подразделения",
+              "doc.buyers_order",
+              "cat.divisions",
               "cch.properties",
-              "cat.Номенклатура",
+              "cat.nom",
               "boolean",
-              "cat.Валюты",
-              "cat.ТипыЦенНоменклатуры",
+              "cat.currencies",
+              "cat.nom_prices_types",
               "string",
               "date",
               "number",
-              "cat.ВидыНоменклатуры"
+              "cat.nom_kinds"
             ],
             "is_ref": true,
             "str_len": 1024,
@@ -10330,17 +10350,17 @@
           "tooltip": "",
           "type": {
             "types": [
-              "doc.ЗаказПокупателя",
-              "cat.Подразделения",
+              "doc.buyers_order",
+              "cat.divisions",
               "cch.properties",
-              "cat.Номенклатура",
+              "cat.nom",
               "boolean",
-              "cat.Валюты",
-              "cat.ТипыЦенНоменклатуры",
+              "cat.currencies",
+              "cat.nom_prices_types",
               "string",
               "date",
               "number",
-              "cat.ВидыНоменклатуры"
+              "cat.nom_kinds"
             ],
             "is_ref": true,
             "str_len": 1024,
@@ -10368,17 +10388,17 @@
               },
               "type": {
                 "types": [
-                  "doc.ЗаказПокупателя",
-                  "cat.Подразделения",
+                  "doc.buyers_order",
+                  "cat.divisions",
                   "cch.properties",
-                  "cat.Номенклатура",
+                  "cat.nom",
                   "boolean",
-                  "cat.Валюты",
-                  "cat.ТипыЦенНоменклатуры",
+                  "cat.currencies",
+                  "cat.nom_prices_types",
                   "string",
                   "date",
                   "number",
-                  "cat.ВидыНоменклатуры"
+                  "cat.nom_kinds"
                 ],
                 "is_ref": true,
                 "str_len": 1024,
@@ -10393,17 +10413,17 @@
               "tooltip": "",
               "type": {
                 "types": [
-                  "doc.ЗаказПокупателя",
-                  "cat.Подразделения",
+                  "doc.buyers_order",
+                  "cat.divisions",
                   "cch.properties",
-                  "cat.Номенклатура",
+                  "cat.nom",
                   "boolean",
-                  "cat.Валюты",
-                  "cat.ТипыЦенНоменклатуры",
+                  "cat.currencies",
+                  "cat.nom_prices_types",
                   "string",
                   "date",
                   "number",
-                  "cat.ВидыНоменклатуры"
+                  "cat.nom_kinds"
                 ],
                 "is_ref": true,
                 "str_len": 1024,
@@ -10452,23 +10472,23 @@
           "tooltip": "",
           "type": {
             "types": [
-              "cat.Организации",
+              "cat.organizations",
               "cat.users",
-              "cat.Подразделения",
-              "cat.КлассификаторЕдиницИзмерения",
-              "cat.Номенклатура",
-              "cat.Контрагенты",
+              "cat.divisions",
+              "cat.units",
+              "cat.nom",
+              "cat.partners",
               "boolean",
               "cat.КлассификаторСтранМира",
-              "cat.Валюты",
+              "cat.currencies",
               "cat.КонтактныеЛица",
               "cat.Склады",
               "cat.ФизическиеЛица",
               "string",
               "date",
               "number",
-              "cat.КонтактныеЛицаКонтрагентов",
-              "cat.НоменклатурныеГруппы",
+              "cat.contact_persons_partners",
+              "cat.nom_groups",
               "cat.property_values"
             ],
             "is_ref": true,
@@ -10491,20 +10511,43 @@
   "tsk": {
   },
   "syns_1с": [
+    "БазоваяЕдиницаИзмерения",
+    "Банки",
+    "БанковскиеСчета",
+    "БанковскийСчет",
     "БизнесПроцесс",
     "Булево",
+    "Валюта",
+    "ВалютаВзаиморасчетов",
+    "ВалютаДенежныхСредств",
+    "ВалютаДокумента",
+    "ВалютаЦены",
+    "Валюты",
     "ВводПоСтроке",
+    "ВедениеВзаиморасчетовПоДоговорам",
     "ВедущаяЗадача",
+    "ВидДоговора",
+    "ВидНоменклатуры",
+    "ВидыДоговоровКонтрагентов",
+    "ВидыКонтактнойИнформации",
+    "ВидыНоменклатуры",
     "Владелец",
     "ВыборГруппИЭлементов",
     "Выполнена",
     "Дата",
     "Действие",
     "ДлинаКода",
+    "ДоговорКонтрагента",
+    "ДоговорыКонтрагентов",
     "ДополнительныеРеквизиты",
     "ДополнительныеСведения",
+    "ЕдиницаИзмерения",
+    "ЕдиницаПоКлассификатору",
+    "ЕдиницаХраненияОстатков",
+    "ЕдиницыИзмерения",
     "Завершен",
     "Завершение",
+    "ЗаказПокупателя",
     "Значение",
     "Значения",
     "ЗначенияПолей",
@@ -10520,18 +10563,33 @@
     "ИнтеграцияСостоянияТранспорта",
     "ИнтеграцияТипКеширования",
     "ИнтеграцияТипРегистрации",
+    "КлассификаторЕдиницИзмерения",
     "Код",
+    "КонтактнаяИнформация",
+    "КонтактныеЛицаКонтрагентов",
+    "Контрагент",
+    "Контрагенты",
+    "КурсыВалют",
     "МногострочныйРежим",
     "НазначенияСвойствКатегорийОбъектов",
     "Наименование",
+    "Номенклатура",
+    "НоменклатурнаяГруппа",
+    "НоменклатурныеГруппы",
     "Номер",
     "НомерСтроки",
+    "Организации",
+    "Организация",
+    "ОсновнаяВалюта",
     "ОсновноеПредставлениеИмя",
+    "ОсновнойДоговорКонтрагента",
     "Отбор",
     "Параметр",
     "Параметры",
     "ПараметрыВыбора",
     "ПараметрыОтбора",
+    "Подразделение",
+    "Подразделения",
     "Подсказка",
     "Подчиненый",
     "Пользователи",
@@ -10548,6 +10606,7 @@
     "Принудительно",
     "Приоритет",
     "Проведен",
+    "ПроцентСкидкиНаценки",
     "Реквизит",
     "Реквизиты",
     "Родитель",
@@ -10563,30 +10622,68 @@
     "Ссылка",
     "Стартован",
     "Строка",
+    "Сумма",
+    "СуммаАвтоматическойСкидки",
+    "СуммаВзаиморасчетов",
+    "СуммаДокумента",
+    "СуммаНДС",
+    "СуммаУпр",
     "ТабличнаяЧасть",
     "ТабличныеЧасти",
     "Тип",
+    "ТипНоменклатуры",
     "ТипСчета",
+    "ТипыКонтактнойИнформации",
+    "ТипыНоменклатуры",
+    "ТипыЦенНоменклатуры",
+    "Товары",
     "ТочкаМаршрута",
     "Условие",
+    "Услуги",
+    "УстановкаЦенНоменклатуры",
+    "ХарактеристикаНоменклатуры",
+    "ХарактеристикиНоменклатуры",
     "Число",
     "ЭтоГруппа"
   ],
   "syns_js": [
+    "base_unit",
+    "banks_qualifier",
+    "bank_accounts",
+    "bank_account",
     "buisness_process",
     "boolean",
+    "currency",
+    "settlements_currency",
+    "funds_currency",
+    "doc_currency",
+    "price_currency",
+    "currencies",
     "input_by_string",
+    "mutual_contract_settlements",
     "leading_task",
+    "contract_kind",
+    "nom_kind",
+    "contract_kinds",
+    "contact_information_kinds",
+    "nom_kinds",
     "owner",
     "choice_groups_elm",
     "completed",
     "date",
     "action",
     "code_length",
+    "contract",
+    "contracts",
     "extra_fields",
     "extra_properties",
+    "unit",
+    "qualifier_unit",
+    "storage_unit",
+    "nom_units",
     "finished",
     "completion",
+    "buyers_order",
     "value",
     "values",
     "values_fields",
@@ -10602,18 +10699,33 @@
     "obj_delivery_states",
     "caching_type",
     "registration_type",
+    "units",
     "id",
+    "contact_information",
+    "contact_persons_partners",
+    "partner",
+    "partners",
+    "currency_courses",
     "multiline_mode",
     "destinations",
     "name",
+    "nom",
+    "nom_group",
+    "nom_groups",
     "number_doc",
     "row",
+    "organizations",
+    "organization",
+    "main_currency",
     "main_presentation_name",
+    "main_contract",
     "selection",
     "param",
     "params",
     "choice_params",
     "selection_params",
+    "department",
+    "divisions",
     "tooltip",
     "has_owners",
     "users",
@@ -10630,6 +10742,7 @@
     "forcibly",
     "priority",
     "posted",
+    "discount_percent",
     "field",
     "fields",
     "parent",
@@ -10645,12 +10758,27 @@
     "ref",
     "started",
     "string",
+    "amount",
+    "discount_amount_automatic",
+    "amount_mutual",
+    "doc_amount",
+    "vat_amount",
+    "amount_operation",
     "tabular_section",
     "tabular_sections",
     "type",
+    "nom_type",
     "account_type",
+    "contact_information_types",
+    "nom_types",
+    "nom_prices_types",
+    "goods",
     "buisness_process_point",
     "condition",
+    "services",
+    "nom_prices_setup",
+    "nom_characteristic",
+    "characteristics",
     "number",
     "is_folder"
   ]
