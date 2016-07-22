@@ -116,7 +116,7 @@ $p.iface.view_orders = function (cell) {
 
 
 		// Дожидаемся инициализации констант
-		if($p.job_prm.builder)
+		if($p.job_prm.properties)
 			setTimeout(go_go);
 		else
 			$p.on({ predefined_elmnts_inited: go_go });
