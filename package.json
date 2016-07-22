@@ -1,0 +1,44 @@
+{
+  "name": "orders",
+  "description": "Заказы онлайн",
+  "version": "0.0.1",
+  "author": "Evgeniy Malyarov <info@oknosoft.ru> (http://www.oknosoft.ru)",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "gulp": "^3.9",
+    "gulp-concat": "^2.6",
+    "gulp-csso": "^1.0",
+    "gulp-rename": "^1.2",
+    "gulp-uglify": "^1.4",
+    "gulp-umd": "^0.2",
+    "gulp-base64": "^0.1"
+  },
+  "engines": {
+    "node": ">=5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oknosoft/order-online.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oknosoft/order-online/issues"
+  },
+  "homepage": "http://www.oknosoft.ru/metadata/",
+  "main": "dist/orders.min.js",
+  "keywords": [
+    "webshop",
+    "webstore",
+    "1с онлайн заказ",
+    "1c online order",
+    "заказы онлайн",
+    "веб заказы",
+    "web order",
+    "crm"
+  ],
+  "license": "AGPL-3.0"
+}

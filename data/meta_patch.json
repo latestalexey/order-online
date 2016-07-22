@@ -1,0 +1,61 @@
+{
+  "_id": "meta_patch",
+  "_rev": "19-0a61b11f771d78943803638ebd598d81",
+  "enm": {
+  },
+  "cat": {
+  },
+  "doc": {
+  },
+  "ireg": {
+  },
+  "areg": {
+  },
+  "dp": {
+  },
+  "rep": {
+  },
+  "cch": {
+    "predefined_elmnts": {
+      "form": {
+        "obj": {
+          "head": {
+            " ": [
+              {
+                "id": "name",
+                "path": "o.name",
+                "synonym": "Наименование",
+                "type": "ro"
+              },
+              {
+                "id": "synonym",
+                "path": "o.synonym",
+                "synonym": "Синоним",
+                "type": "ro"
+              },
+              "list",
+              "zone",
+              "value"
+            ]
+          },
+          "tabular_sections": {
+            "elmnts": {
+              "fields": [
+                "elm",
+                "value"
+              ],
+              "headers": "Элемент,Значение",
+              "widths": "*,*",
+              "min_widths": "150,150",
+              "aligns": "",
+              "sortings": "na,na",
+              "types": "ref,ref"
+            }
+          }
+        }
+      }
+    }
+  },
+  "cacc": {
+  }
+}
