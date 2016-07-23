@@ -59,9 +59,3 @@ gulp.task('main', function(){
 		.pipe(uglify())
 		.pipe(gulp.dest('./dist'));
 });
-
-
-var toRun = ['injected', 'main'];
-
-// Главная задача
-gulp.task('default', toRun, function(){});

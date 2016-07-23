@@ -77,17 +77,10 @@ $p.modifiers.push(
 							case 'sent':
 							case 'declined':
 							case 'confirmed':
-							case 'service':
-							case 'complaints':
-							case 'template':
 							case 'zarchive':
 								return 'doc/doc_buyers_order_date';
 
 							case 'execution':
-							case 'plan':
-							case 'underway':
-							case 'manufactured':
-							case 'executed':
 							case 'all':
 								return '';
 						}
@@ -105,18 +98,11 @@ $p.modifiers.push(
 							case 'sent':
 							case 'declined':
 							case 'confirmed':
-							case 'service':
-							case 'complaints':
-							case 'template':
 							case 'zarchive':
 								key = id;
 								break;
 
 							case 'execution':
-							case 'plan':
-							case 'underway':
-							case 'manufactured':
-							case 'executed':
 							case 'all':
 								return '';
 						}
@@ -135,11 +121,6 @@ $p.modifiers.push(
 			wnd.elmnts.filter.custom_selection._view = filter_view;
 			wnd.elmnts.filter.custom_selection._key = filter_key;
 
-			// картинка заказа в статусбаре
-			wnd.elmnts.svgs = new $p.iface.OSvgs($p.doc.buyers_order, wnd, wnd.elmnts.status_bar);
-			wnd.elmnts.grid.attachEvent("onRowSelect", function (rid) {
-				wnd.elmnts.svgs.reload(rid);
-			});
 
 			// настраиваем дерево
 			tree.enableTreeImages(false);
@@ -153,9 +134,6 @@ $p.modifiers.push(
 					case 'sent':
 					case 'declined':
 					case 'confirmed':
-					case 'service':
-					case 'complaints':
-					case 'template':
 					case 'zarchive':
 					case 'all':
 						carousel.cells("list").setActive();
