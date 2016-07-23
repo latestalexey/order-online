@@ -81,7 +81,7 @@ $p.modifiers.push(
 							case 'complaints':
 							case 'template':
 							case 'zarchive':
-								return 'doc/doc_calc_order_date';
+								return 'doc/doc_buyers_order_date';
 
 							case 'execution':
 							case 'plan':

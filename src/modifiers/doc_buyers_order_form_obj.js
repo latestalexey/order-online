@@ -65,7 +65,7 @@ $p.modifiers.push(
 					.then(function () {
 
 						// табчасть продукции со специфическим набором кнопок
-						tabular_init("production", $p.injected_data["toolbar_calc_order_production.xml"]);
+						tabular_init("goods");
 
 						var toolbar = wnd.elmnts.tabs.tab_production.getAttachedToolbar();
 						toolbar.addSpacer("btn_delete");
@@ -183,7 +183,7 @@ $p.modifiers.push(
 				//});
 			};
 
-			attr.toolbar_struct = $p.injected_data["toolbar_calc_order_obj.xml"];
+			attr.toolbar_struct = $p.injected_data["toolbar_buyers_order_obj.xml"];
 
 			attr.toolbar_click = toolbar_click;
 

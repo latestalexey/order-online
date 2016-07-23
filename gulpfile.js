@@ -16,6 +16,8 @@ var umd = require('gulp-umd');
 gulp.task('injected', function(){
 	gulp.src([
 		'./src/templates/*.html',
+		'./src/templates/xml/toolbar_buyers_order_obj.xml',
+		'./src/templates/xml/tree_*.xml',
 		'./data/create_tables.sql'
 	])
 		.pipe(resources('merged_data.js', function (data) {
