@@ -18,12 +18,12 @@ gulp.task('injected', function(){
 		'./src/templates/*.html',
 		'./src/templates/xml/toolbar_buyers_order_obj.xml',
 		'./src/templates/xml/tree_*.xml',
-		'./data/create_tables.sql'
+		'./tmp/create_tables.sql'
 	])
 		.pipe(resources('merged_data.js', function (data) {
 			return new Buffer('$p.injected_data._mixin(' + JSON.stringify(data) + ');');
 		}))
-		.pipe(gulp.dest('./data'));
+		.pipe(gulp.dest('./tmp'));
 });
 
 // Сборка css
@@ -43,7 +43,7 @@ gulp.task('css-base64', function () {
 gulp.task('main', function(){
 	gulp.src([
 		'./src/modifiers/*.js',
-		'./data/merged_data.js',
+		'./tmp/merged_data.js',
 		'./src/main.js',
 		'./src/wdg_*.js',
 		'./src/view_*.js'
