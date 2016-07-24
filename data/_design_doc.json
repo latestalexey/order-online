@@ -1,0 +1,37 @@
+[
+  {
+    "_id": "_design/auth",
+    "language": "javascript",
+    "validate_doc_update": "function(newDoc, oldDoc, userCtx, secObj){if (!userCtx || userCtx.roles.indexOf('_admin')!==-1 || userCtx.roles.indexOf('doc_editor')!==-1){return;}else{throw({forbidden: 'Только полноправные пользователи могут изменять документы'});}}",
+    "filters": {
+      "by_partner": "function(doc, req){if(['_design/server','registers_correction','purchase','credit_cash_order','debit_bank_order','credit_bank_order','debit_cash_order','credit_cash_order','selling'].some(function(name){return doc._id.indexOf(name)!=-1;})){return false;} if(!req.userCtx){ return true; } return doc._id[0]=='_' || !doc.partner || doc.partner=='00000000-0000-0000-0000-000000000000' || req.userCtx.roles.indexOf(doc.partner)!=-1 || req.userCtx.roles.indexOf('_admin') != -1 || req.userCtx.roles.indexOf('doc_full')!=-1;}"
+    }
+  },
+
+  {
+    "_id": "_design/doc",
+    "language": "javascript",
+    "views": {
+      "number_doc": {
+        "map": "function(doc){var c=doc._id.split('|')[0];if(c.substr(0, 3)=='doc') emit([c,doc.number_doc], null);else if(c.substr(0, 3)=='cat'&&doc.id) emit([c,doc.id], null);}"
+      },
+      "doc_buyers_order_date": {
+        "map": "function(doc) {\nvar key;\nif (doc._id.substr(0, 16)=='doc.buyers_order') {\n  if(doc.obj_delivery_state=='Шаблон') key='template';\n  else if(doc.obj_delivery_state=='Отправлен') key='sent';\n  else if(doc.obj_delivery_state=='Отклонен') key='declined';\n  else if(doc.obj_delivery_state=='Подтвержден') key='confirmed';\n  else if(doc.obj_delivery_state=='Архив') key='zarchive';\n  else key='draft';\n  var d=doc.date.split('T')[0].split('-');\n  emit([key,Number(d[0]),Number(d[1]),Number(d[2]),(doc.number_doc||'')+(doc.note ? ' ' + doc.note : '')], null);\n}}"
+      },
+      "doc_nom_prices_setup_slice_last": {
+        "map": "function(doc) {\n  if(doc._id.substr(0, 20)=='doc.nom_prices_setup'&&doc.posted){\n  doc.goods.forEach(function(row){\n  emit([row.nom,row.nom_characteristic,row.price_type],{\n  price: row.price,\n  currency: row.currency,\n  date:doc.date\n  });\n  });\n  }\n}"
+      }
+    }
+  },
+
+  {
+    "_id": "_design/server",
+    "language": "javascript",
+    "views": {
+      "invoice_execution": {
+        "map": "function(doc) {\nif (doc._id.substr(0, 16)=='doc.buyers_order'&&doc.posted){\n  emit([doc.partner,doc.organization,doc._id.substr(15)],{invoice: doc.doc_amount});\n}else if ((doc._id.substr(0, 20)=='doc.debit_cash_order'||doc._id.substr(0, 21)=='doc.credit_card_order'||doc._id.substr(0, 20)=='doc.debit_bank_order')&&doc.posted){\n  doc.payment_details.forEach(function(row){\n    emit([doc.partner,doc.organization,row.trans],{pay: row.amount});\n});\n}else if ((doc._id.substr(0, 21)=='doc.credit_cash_order'||doc._id.substr(0, 21)=='doc.credit_bank_order')&&doc.posted){\n  doc.payment_details.forEach(function(row){\n    if(row.trans)\n      emit([doc.partner,doc.organization,row.trans],{pay: -row.amount});\n});\n}else if ((doc._id.substr(0, 11)=='doc.selling')&&doc.posted){\n  doc.goods.forEach(function(row){\n    if(row.trans)\n      emit([doc.partner,doc.organization,row.trans],{shipment: row.amount});\n});\n}\n}",
+        "reduce": "function (key, values, rereduce) {\nreturn values.reduce(function(sum, row){\n  if(row.invoice){sum.invoice+=row.invoice;sum.total_pay+=row.invoice;sum.total_shipment+=row.invoice;}\n  if(row.pay){sum.pay+=row.pay;sum.total_pay-=row.pay;}\n  if(row.shipment){sum.shipment+=row.shipment;sum.total_shipment-=row.shipment;}\n  return sum;\n},{invoice:0,pay:0,total_pay:0,shipment:0,total_shipment:0});\n}"
+      }
+    }
+  }
+]
