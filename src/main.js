@@ -46,8 +46,8 @@ $p.on({
 			// гостевые пользователи для демо-режима
 			guests: {
 				value: [{
-					username: "Дилер",
-					password: "1gNjzYQKBlcD"
+					username: "Алгоритм",
+					password: "hQI7OhIGlVeOWi8="
 				}]
 			},
 

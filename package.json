@@ -16,6 +16,7 @@
     "gulp-rename": "^1.2",
     "gulp-uglify": "^1.4",
     "gulp-umd": "^0.2",
+    "gulp-replace": "^0.5",
     "gulp-base64": "^0.1",
     "jasmine": ">=2.4"
   },
