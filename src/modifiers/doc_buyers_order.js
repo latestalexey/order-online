@@ -14,7 +14,6 @@ $p.modifiers.push(
 
 		var _mgr = $p.doc.buyers_order;
 
-
 		// после создания надо заполнить реквизиты по умолчанию: контрагент, организация, договор
 		_mgr.on("after_create", function (attr) {
 
