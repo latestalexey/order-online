@@ -1,6 +1,6 @@
 {
   "_id": "meta",
-  "_rev": "5-9876bc3fd9d7cd5b2333e5bdca83244f",
+  "_rev": "8-95be25f97ea31d9d588a425a8d64bd35",
   "enm": {
     "accumulation_record_type": [
       {
@@ -679,7 +679,7 @@
             "is_ref": true
           }
         },
-        "ВедениеВзаиморасчетов": {
+        "mutual_settlements": {
           "synonym": "Ведение взаиморасчетов",
           "multiline_mode": false,
           "tooltip": "",
@@ -692,7 +692,7 @@
             "is_ref": true
           }
         },
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -703,7 +703,7 @@
             "str_len": 0
           }
         },
-        "ДержатьРезервБезОплатыОграниченноеВремя": {
+        "check_days_without_pay": {
           "synonym": "Держать резерв без оплаты ограниченное время",
           "multiline_mode": false,
           "tooltip": "",
@@ -713,7 +713,7 @@
             ]
           }
         },
-        "ДопустимаяСуммаЗадолженности": {
+        "allowable_debts_amount": {
           "synonym": "Допустимая сумма дебиторской задолженности",
           "multiline_mode": false,
           "tooltip": "",
@@ -725,7 +725,7 @@
             "fraction_figits": 2
           }
         },
-        "ДопустимоеЧислоДнейЗадолженности": {
+        "allowable_debts_days": {
           "synonym": "Допустимое число дней дебиторской задолженности",
           "multiline_mode": false,
           "tooltip": "",
@@ -750,7 +750,7 @@
             "is_ref": true
           }
         },
-        "КонтролироватьСуммуЗадолженности": {
+        "check_debts_amount": {
           "synonym": "Контролировать сумму дебиторской задолженности",
           "multiline_mode": false,
           "tooltip": "",
@@ -760,7 +760,7 @@
             ]
           }
         },
-        "КонтролироватьЧислоДнейЗадолженности": {
+        "check_debts_days": {
           "synonym": "Контролировать число дней дебиторской задолженности",
           "multiline_mode": false,
           "tooltip": "",
@@ -770,7 +770,7 @@
             ]
           }
         },
-        "ПроцентПредоплаты": {
+        "prepayment_percent": {
           "synonym": "Процент предоплаты",
           "multiline_mode": false,
           "tooltip": "",
@@ -853,7 +853,7 @@
             "str_len": 20
           }
         },
-        "ОсновнойПроект": {
+        "main_project": {
           "synonym": "Основной проект",
           "multiline_mode": false,
           "tooltip": "",
@@ -887,38 +887,6 @@
               "date"
             ],
             "date_part": "date"
-          }
-        },
-        "НалоговыйАгентПоОплате": {
-          "synonym": "НДС при исполнении обязанностей налогового агента начисляется по оплате",
-          "multiline_mode": false,
-          "tooltip": "",
-          "type": {
-            "types": [
-              "boolean"
-            ]
-          }
-        },
-        "УстановленСрокОплатыДляРезервовПоСомнительнымДолгам": {
-          "synonym": "Установлен срок оплаты для резервов по сомнительным долгам",
-          "multiline_mode": false,
-          "tooltip": "",
-          "type": {
-            "types": [
-              "boolean"
-            ]
-          }
-        },
-        "СрокОплатыДляРезервовПоСомнительнымДолгам": {
-          "synonym": "Срок оплаты для резервов по сомнительным долгам",
-          "multiline_mode": false,
-          "tooltip": "",
-          "type": {
-            "types": [
-              "number"
-            ],
-            "digits": 5,
-            "fraction_figits": 0
           }
         },
         "owner": {
@@ -2960,7 +2928,7 @@
             "str_len": 100
           }
         },
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -3029,7 +2997,7 @@
             "str_len": 0
           }
         },
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -3459,7 +3427,7 @@
             "is_ref": true
           }
         },
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -3926,7 +3894,7 @@
       "main_presentation_name": false,
       "code_length": 30,
       "fields": {
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -4695,7 +4663,7 @@
             "is_ref": true
           }
         },
-        "ОсновнойПроект": {
+        "main_project": {
           "synonym": "Основной проект",
           "multiline_mode": false,
           "tooltip": "",
@@ -4923,7 +4891,7 @@
       "main_presentation_name": true,
       "code_length": 9,
       "fields": {
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -5059,7 +5027,7 @@
             "is_ref": true
           }
         },
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -5390,7 +5358,7 @@
       "main_presentation_name": true,
       "code_length": 9,
       "fields": {
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -5919,7 +5887,7 @@
             ]
           }
         },
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -6009,7 +5977,7 @@
             "str_len": 0
           }
         },
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -6109,7 +6077,7 @@
             "str_len": 4
           }
         },
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -7000,7 +6968,7 @@
             "fraction_figits": 2
           }
         },
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -7023,7 +6991,7 @@
             "is_ref": true
           }
         },
-        "КратностьВзаиморасчетов": {
+        "settlements_multiplicity": {
           "synonym": "Кратность взаиморасчетов",
           "multiline_mode": false,
           "tooltip": "",
@@ -7035,7 +7003,7 @@
             "fraction_figits": 0
           }
         },
-        "КурсВзаиморасчетов": {
+        "settlements_course": {
           "synonym": "Курс взаиморасчетов",
           "multiline_mode": false,
           "tooltip": "",
@@ -7526,7 +7494,7 @@
                 "fraction_figits": 2
               }
             },
-            "ПроцентАвтоматическихСкидок": {
+            "discount_percent_auto": {
               "synonym": "Процент автоматических скидок",
               "multiline_mode": false,
               "tooltip": "",
@@ -8259,7 +8227,7 @@
             ]
           }
         },
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -9572,7 +9540,7 @@
                 "fraction_figits": 2
               }
             },
-            "КурсВзаиморасчетов": {
+            "settlements_course": {
               "synonym": "Курс взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -9584,7 +9552,7 @@
                 "fraction_figits": 4
               }
             },
-            "КратностьВзаиморасчетов": {
+            "settlements_multiplicity": {
               "synonym": "Кратность взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -9777,7 +9745,7 @@
             "is_ref": true
           }
         },
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -10755,7 +10723,7 @@
                 "is_ref": true
               }
             },
-            "КурсВзаиморасчетов": {
+            "settlements_course": {
               "synonym": "Курс взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -10779,7 +10747,7 @@
                 "fraction_figits": 2
               }
             },
-            "КратностьВзаиморасчетов": {
+            "settlements_multiplicity": {
               "synonym": "Кратность взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -11187,7 +11155,7 @@
             "str_len": 0
           }
         },
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -12318,7 +12286,7 @@
                 "is_ref": true
               }
             },
-            "КурсВзаиморасчетов": {
+            "settlements_course": {
               "synonym": "Курс взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -12342,7 +12310,7 @@
                 "fraction_figits": 2
               }
             },
-            "КратностьВзаиморасчетов": {
+            "settlements_multiplicity": {
               "synonym": "Кратность взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -12796,7 +12764,7 @@
             ]
           }
         },
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -13384,7 +13352,7 @@
                 "is_ref": true
               }
             },
-            "КурсВзаиморасчетов": {
+            "settlements_course": {
               "synonym": "Курс взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -13408,7 +13376,7 @@
                 "fraction_figits": 2
               }
             },
-            "КратностьВзаиморасчетов": {
+            "settlements_multiplicity": {
               "synonym": "Кратность взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -13777,7 +13745,7 @@
             ]
           }
         },
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -14715,7 +14683,7 @@
                 "is_ref": true
               }
             },
-            "КурсВзаиморасчетов": {
+            "settlements_course": {
               "synonym": "Курс взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -14739,7 +14707,7 @@
                 "fraction_figits": 2
               }
             },
-            "КратностьВзаиморасчетов": {
+            "settlements_multiplicity": {
               "synonym": "Кратность взаиморасчетов",
               "multiline_mode": false,
               "tooltip": "",
@@ -15037,7 +15005,7 @@
       "main_presentation_name": false,
       "code_length": 11,
       "fields": {
-        "Комментарий": {
+        "note": {
           "synonym": "Комментарий",
           "multiline_mode": false,
           "tooltip": "",
@@ -15980,6 +15948,7 @@
     "ВалютаЦены",
     "Валюты",
     "ВводПоСтроке",
+    "ВедениеВзаиморасчетов",
     "ВедениеВзаиморасчетовПоДоговорам",
     "ВедущаяЗадача",
     "ВидДоговора",
@@ -15993,11 +15962,14 @@
     "Выполнена",
     "Дата",
     "Действие",
+    "ДержатьРезервБезОплатыОграниченноеВремя",
     "ДлинаКода",
     "ДоговорКонтрагента",
     "ДоговорыКонтрагентов",
     "ДополнительныеРеквизиты",
     "ДополнительныеСведения",
+    "ДопустимаяСуммаЗадолженности",
+    "ДопустимоеЧислоДнейЗадолженности",
     "ЕдиницаИзмерения",
     "ЕдиницаПоКлассификатору",
     "ЕдиницаХраненияОстатков",
@@ -16026,12 +15998,19 @@
     "КлассификаторЕдиницИзмерения",
     "КлассификаторСтранМира",
     "Код",
+    "Комментарий",
     "КонтактнаяИнформация",
     "КонтактныеЛица",
     "КонтактныеЛицаКонтрагентов",
     "Контрагент",
     "Контрагенты",
+    "КонтролироватьСуммуЗадолженности",
+    "КонтролироватьЧислоДнейЗадолженности",
     "КорректировкаДолга",
+    "Кратность",
+    "КратностьВзаиморасчетов",
+    "Курс",
+    "КурсВзаиморасчетов",
     "КурсыВалют",
     "МногострочныйРежим",
     "НазначенияСвойствКатегорийОбъектов",
@@ -16050,6 +16029,7 @@
     "ОсновнаяСтатьяДвиженияДенежныхСредств",
     "ОсновноеПредставлениеИмя",
     "ОсновнойДоговорКонтрагента",
+    "ОсновнойПроект",
     "Отбор",
     "Параметр",
     "Параметры",
@@ -16080,6 +16060,7 @@
     "Проведен",
     "Проект",
     "Проекты",
+    "ПроцентПредоплаты",
     "ПроцентСкидкиНаценки",
     "РасходныйКассовыйОрдер",
     "Регионы",
@@ -16160,6 +16141,7 @@
     "price_currency",
     "currencies",
     "input_by_string",
+    "mutual_settlements",
     "mutual_contract_settlements",
     "leading_task",
     "contract_kind",
@@ -16173,11 +16155,14 @@
     "completed",
     "date",
     "action",
+    "check_days_without_pay",
     "code_length",
     "contract",
     "contracts",
     "extra_fields",
     "extra_properties",
+    "allowable_debts_amount",
+    "allowable_debts_days",
     "unit",
     "qualifier_unit",
     "storage_unit",
@@ -16206,12 +16191,19 @@
     "units",
     "countries",
     "id",
+    "note",
     "contact_information",
     "contact_persons",
     "contact_persons_partners",
     "partner",
     "partners",
+    "check_debts_amount",
+    "check_debts_days",
     "debt_adjustment",
+    "multiplicity",
+    "settlements_multiplicity",
+    "course",
+    "settlements_course",
     "currency_courses",
     "multiline_mode",
     "destinations",
@@ -16230,6 +16222,7 @@
     "main_cash_flow_article",
     "main_presentation_name",
     "main_contract",
+    "main_project",
     "selection",
     "param",
     "params",
@@ -16260,6 +16253,7 @@
     "posted",
     "project",
     "projects",
+    "prepayment_percent",
     "discount_percent",
     "credit_cash_order",
     "regions",
