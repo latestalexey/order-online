@@ -223,7 +223,7 @@
               "fields": [
                 "row",
                 "nom",
-                "characteristic",
+                "nom_characteristic",
                 "quantity",
                 "unit",
                 "price",

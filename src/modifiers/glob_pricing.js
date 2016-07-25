@@ -22,6 +22,15 @@ $p.modifiers.push(
 			 *
 			 * @method _price
 			 * @for $p.cat.nom
+			 *
+			 * @example
+			 *     // установим цену в строке документа
+			 *     row.price = row.nom._price({
+			 *			price_type: this.doc_price_type,
+			 *			characteristic: row.characteristic,
+			 *			date: this.date,
+			 *			currency: this.doc_currency
+			 *		});
 			 */
 			_price: {
 				value: function (attr) {

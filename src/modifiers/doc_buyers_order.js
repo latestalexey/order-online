@@ -53,6 +53,9 @@ $p.modifiers.push(
 			//СостояниеТранспорта
 			obj.obj_delivery_state = $p.enm.obj_delivery_states.Черновик;
 
+			// Валюта
+			this.doc_currency = this.currency;
+
 			//Номер документа
 			return obj.new_number_doc();
 
@@ -90,6 +93,18 @@ $p.modifiers.push(
 
 		// при изменении реквизита
 		_mgr.on("value_change", function (attr) {
+
+			var calc_amount = function () {
+
+				// TODO: учесть валюту документа, которая может отличаться от валюты упр. учета
+
+				// TODO: учесть ставку НДС и рассчитать сумму НДС
+
+				attr.row.amount = (attr.row.price * ((100 - (attr.row.discount_percent + attr.row.discount_percent_auto))/100) * attr.row.quantity).round(2);
+
+				this.doc_amount = this.goods.aggregate([], ["amount"]).round(2) + this.services.aggregate([], ["amount"]).round(2);
+
+			}.bind(this);
 			
 			// реквизиты шапки
 			if(attr.field == "organization" && this.contract.organization != attr.value){
@@ -101,19 +116,30 @@ $p.modifiers.push(
 			// табчасть товаров
 			}else if(attr.tabular_section == "goods"){
 
-				if(attr.field == "nom" || attr.field == "characteristic"){
-					
-				}else if(attr.field == "price" || attr.field == "price_internal" || attr.field == "quantity" ||
+				attr.row[attr.field] = attr.value;
+
+				if(attr.field == "nom" || attr.field == "nom_characteristic"){
+
+					// проверим связь по владельцу характеристики
+					if(attr.field == "nom" && !attr.row.nom_characteristic.empty() && attr.row.nom_characteristic.owner != attr.value){
+						attr.row.nom_characteristic = "";
+					}
+
+					// рассчитаем цену при изменении номенклатуры или характеристики
+					attr.row.price = attr.row.nom._price({
+						price_type: this.doc_price_type,
+						characteristic: attr.row.nom_characteristic,
+						date: this.date,
+						currency: this.currency
+					});
+
+					// рассчитаем итоги
+					calc_amount();
+
+
+				}else if(attr.field == "price" || attr.field == "quantity" ||
 						attr.field == "discount_percent" || attr.field == "discount_percent_internal"){
-					
-					attr.row[attr.field] = attr.value;
-					
-					attr.row.amount = (attr.row.price * ((100 - attr.row.discount_percent)/100) * attr.row.quantity).round(2);
-
-					this.doc_amount = this.goods.aggregate([], ["amount"]).round(2) + this.services.aggregate([], ["amount"]).round(2);
-
-					// TODO: учесть валюту документа, которая может отличаться от валюты упр. учета
-
+					calc_amount();
 				}
 				
 			}
@@ -123,16 +149,36 @@ $p.modifiers.push(
 		_mgr._obj_constructor.prototype.__define({
 			
 
-			// валюту документа получаем из договора
-			doc_currency: {
+			/**
+			 * ### Валюта документа
+			 * получаем из договора или из констант
+			 * @property currency
+			 */
+			currency: {
 				get: function () {
-					var currency = this.contract.settlements_currency;
+					var currency = this.doc_currency.empty() ? this.contract.settlements_currency : this.doc_currency;
 					return currency.empty() ? $p.job_prm.pricing.main_currency : currency;
 				}
 			},
 
 			/**
-			 * Возвращает данные для печати
+			 * ### Тип цен документа
+			 * получаем из поля документа или из договора или из констант
+			 * @property doc_price_type
+			 */
+			doc_price_type: {
+				get: function () {
+					var price_type = this.price_type.empty() ? this.contract.price_type : this.price_type;
+					if(price_type._manager === $p.cat.nom_prices_types_partners)
+						price_type = price_type.nom_prices_type;
+					return price_type.empty() ? $p.job_prm.pricing.price_type_sale : price_type;
+				}
+			},
+
+			/**
+			 * ### Данные печати
+			 * возвращает структуру для построения печатной формы
+			 * @property print_data
 			 */
 			print_data: {
 				get: function () {
@@ -143,7 +189,7 @@ $p.modifiers.push(
 					// заполняем res теми данными, которые доступны синхронно
 					var res = {
 						АдресДоставки: this.shipping_address,
-						ВалютаДокумента: this.doc_currency.presentation,
+						ВалютаДокумента: this.currency.presentation,
 						ДатаЗаказаФорматD: $p.moment(this.date).format("L"),
 						ДатаЗаказаФорматDD: $p.moment(this.date).format("LL"),
 						ДатаТекущаяФорматD: $p.moment().format("L"),
@@ -318,7 +364,7 @@ $p.modifiers.push(
 			row_description: {
 				value: function (row) {
 
-					var product = row.characteristic,
+					var product = row.nom_characteristic,
 						res = {
 							НомерСтроки: row.row,
 							Количество: row.quantity,
