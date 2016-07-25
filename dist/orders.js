@@ -2129,9 +2129,10 @@ $p.on({
 		// если это первый запуск, показываем диалог авторизации
 		if(err.db_name && err.hasOwnProperty("doc_count") && err.doc_count < 10 && navigator.onLine){
 
+			$p.wsql.set_user_param("enable_save_pwd", true);
+
 			// если это демо (zone === zone_demo), устанавливаем логин и пароль
 			if($p.wsql.get_user_param("zone") == $p.job_prm.zone_demo && !$p.wsql.get_user_param("user_name")){
-				$p.wsql.set_user_param("enable_save_pwd", true);
 				$p.wsql.set_user_param("user_name", $p.job_prm.guests[0].username);
 				$p.wsql.set_user_param("user_pwd", $p.job_prm.guests[0].password);
 
