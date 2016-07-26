@@ -703,8 +703,11 @@ $p.modifiers.push(
 				if(attr.field == "nom" || attr.field == "nom_characteristic"){
 
 					// проверим связь по владельцу характеристики
-					if(attr.field == "nom" && !attr.row.nom_characteristic.empty() && attr.row.nom_characteristic.owner != attr.value){
-						attr.row.nom_characteristic = "";
+					if(attr.field == "nom"){
+						if(!attr.row.nom_characteristic.empty() && attr.row.nom_characteristic.owner != attr.value)
+							attr.row.nom_characteristic = "";
+						attr.row.unit = attr.row.nom.storage_unit;
+						attr.row.coefficient = attr.row.unit.coefficient;
 					}
 
 					// рассчитаем цену при изменении номенклатуры или характеристики
