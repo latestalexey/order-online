@@ -17,8 +17,7 @@ gulp.task('injected', function(){
 	gulp.src([
 		'./src/templates/*.html',
 		'./src/templates/xml/toolbar_buyers_order_obj.xml',
-		'./src/templates/xml/tree_*.xml',
-		'./tmp/create_tables.sql'
+		'./src/templates/xml/tree_*.xml'
 	])
 		.pipe(resources('merged_data.js', function (data) {
 			return new Buffer('$p.injected_data._mixin(' + JSON.stringify(data) + ');');
@@ -42,8 +41,9 @@ gulp.task('css-base64', function () {
 // Основная сборка проекта
 gulp.task('main', function(){
 	gulp.src([
-		'./src/modifiers/*.js',
+		'./tmp/metadata.prebuild.js',
 		'./tmp/merged_data.js',
+		'./src/modifiers/**/*.js',
 		'./src/main.js',
 		'./src/wdg_*.js',
 		'./src/view_*.js'

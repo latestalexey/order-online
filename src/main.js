@@ -96,8 +96,7 @@ $p.on({
 
 	/**
 	 * ### При инициализации интерфейса
-	 * Вызывается после готовности DOM и установки параметров сеанса, до готовности метаданных
-	 * В этом обработчике можно начать рисовать интерфейс, но обращаться к данным еще рановато
+	 * Вызывается после готовности DOM и установки параметров сеанса
 	 *
 	 */
 	iface_init: function() {
@@ -112,6 +111,7 @@ $p.on({
 		// наблюдатель за событиями авторизации и синхронизации
 		$p.iface.btn_auth_sync = new $p.iface.OBtnAuthSync();
 
+		// кнопки навигации справа сверху
 		$p.iface.btns_nav = function (wrapper) {
 			return $p.iface.btn_auth_sync.bind(new $p.iface.OTooolBar({
 				wrapper: wrapper,
@@ -131,16 +131,6 @@ $p.on({
 				}
 			}))
 		};
-
-	},
-
-	/**
-	 * ### При готовности метаданных
-	 */
-	meta: function () {
-
-		// гасим заставку
-		document.body.removeChild(document.querySelector("#osplash"));
 
 		// основной сайдбар
 		$p.iface.main = new dhtmlXSideBar({
