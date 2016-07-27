@@ -2647,7 +2647,7 @@ $p.injected_data._mixin({"view_about.html":"<div class=\"md_column1300\">\r\n   
 						delete aattr[i].acl;
 
 					if(!(obj = this.by_ref[ref])){
-						obj = new this._obj_constructor(aattr[i], this);
+						obj = new $p.CatUsers_acl(aattr[i], this);
 						if(forse)
 							obj._set_loaded();
 
@@ -2714,7 +2714,7 @@ $p.injected_data._mixin({"view_about.html":"<div class=\"md_column1300\">\r\n   
 			get: function () {
 				var res = [];
 				this.acl_objs.each(function (row) {
-					if(row.acl_obj instanceof $p.cat.partners._obj_constructor)
+					if(row.acl_obj instanceof $p.CatPartners)
 						res.push(row.acl_obj.ref)
 				});
 				return res;

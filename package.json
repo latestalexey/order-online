@@ -1,27 +1,26 @@
 {
   "name": "orders",
   "description": "Заказы онлайн",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Evgeniy Malyarov <info@oknosoft.ru> (http://www.oknosoft.ru)",
   "directories": {
-    "example": "examples"
   },
   "dependencies": {
-
+    "metadata-js": ">=0.10.214"
   },
   "devDependencies": {
-    "gulp": "^3.9",
-    "gulp-concat": "^2.6",
-    "gulp-csso": "^1.0",
-    "gulp-rename": "^1.2",
-    "gulp-uglify": "^1.4",
-    "gulp-umd": "^0.2",
-    "gulp-replace": "^0.5",
-    "gulp-base64": "^0.1",
+    "gulp": ">=3.9",
+    "gulp-concat": ">=2.6",
+    "gulp-csso": ">=2.0",
+    "gulp-rename": ">=1.2",
+    "gulp-uglify": ">=1.4",
+    "gulp-umd": ">=0.2",
+    "gulp-replace": ">=0.5",
+    "gulp-base64": ">=0.1",
     "jasmine": ">=2.4"
   },
   "engines": {
-    "node": ">=5.0.0"
+    "node": ">=6.0"
   },
   "repository": {
     "type": "git",
@@ -29,6 +28,12 @@
   },
   "bugs": {
     "url": "https://github.com/oknosoft/order-online/issues"
+  },
+  "config": {
+    "path": "http://i980:89/couchdb/oo_",
+    "zone": 0,
+    "prefix": "oo_",
+    "suffix": ""
   },
   "homepage": "http://www.oknosoft.ru/metadata/",
   "main": "dist/orders.min.js",
