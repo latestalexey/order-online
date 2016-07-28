@@ -4,7 +4,7 @@
     "language": "javascript",
     "validate_doc_update": "function(newDoc, oldDoc, userCtx, secObj) {if(userCtx.roles.indexOf('_admin')!==-1){return;}else{throw({forbidden: 'Только администраторы могут изменять метаданные'});}}",
     "filters": {
-      "meta": "function(doc, req) {return doc._id[0]=='_' || doc._id.substr(0,4)=='meta';}"
+      "meta": "function(doc, req) {return doc._id.substr(0,4)!='meta';}"
     }
   }
 ]

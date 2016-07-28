@@ -13,7 +13,6 @@ var $j = {
 		rest_path: "/a/unf/odata/standard.odata/",
 		rest: true,
 		data_url: "examples/unf/data/",
-		create_tables: "examples/unf/data/create_tables.sql",
 		layout: "layout_1c"
 	},
 
