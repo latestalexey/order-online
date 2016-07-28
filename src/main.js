@@ -78,12 +78,11 @@ $p.on({
 
 		});
 
-
 		// по умолчанию, обращаемся к зоне 1
 		prm.zone = 0;
 
 		// объявляем номер демо-зоны
-		prm.zone_demo = 1;
+		prm.zone_demo = 0;
 
 		// расположение couchdb
 		prm.couch_path = "/couchdb/oo_";
@@ -226,21 +225,12 @@ $p.on({
 			// если это демо (zone === zone_demo), устанавливаем логин и пароль
 			if($p.wsql.get_user_param("zone") == $p.job_prm.zone_demo && !$p.wsql.get_user_param("user_name")){
 				$p.wsql.set_user_param("user_name", $p.job_prm.guests[0].username);
-				$p.wsql.set_user_param("user_pwd", $p.job_prm.guests[0].password);
-
-				setTimeout(function () {
-					$p.iface.frm_auth({
-						modal_dialog: true,
-						try_auto: true
-					});
-				}, 100);
-
-			}else{
-				$p.iface.frm_auth({
-					modal_dialog: true,
-					try_auto: $p.wsql.get_user_param("zone") == $p.job_prm.zone_demo && $p.wsql.get_user_param("enable_save_pwd")
-				});
 			}
+
+			$p.iface.frm_auth({
+				modal_dialog: true,
+				try_auto: $p.wsql.get_user_param("zone") == $p.job_prm.zone_demo && $p.wsql.get_user_param("enable_save_pwd")
+			});
 
 		}
 
