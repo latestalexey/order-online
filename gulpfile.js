@@ -1,24 +1,26 @@
 /**
  * gulpfile.js for order-online
+ *
+ * &copy; Evgeniy Malyarov http://www.oknosoft.ru 2014-2016
  */
 
-var gulp = require('gulp');
-module.exports = gulp;
-var base64 = require('gulp-base64');
-var csso = require('gulp-csso');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var resources = require('./src/utils/resource-concat.js');
-var umd = require('gulp-umd');
+var gulp = require('gulp'),
+	base64 = require('gulp-base64'),
+	csso = require('gulp-csso'),
+	concat = require('gulp-concat'),
+	uglify = require('gulp-uglify'),
+	rename = require('gulp-rename'),
+	resources = require('./src/utils/resource-concat.js'),
+	umd = require('gulp-umd');
 
+module.exports = gulp;
 
 // Основная сборка проекта
 gulp.task('main', function(){
 
 	return gulp.src([
 		'./tmp/prebuild.js',
-		'./tmp/merged_data.js',
+		'./tmp/injected.js',
 		'./src/modifiers/**/*.js',
 		'./src/main.js',
 		'./src/wdg_*.js',
@@ -55,7 +57,7 @@ gulp.task('injected', function(){
 		'./src/templates/xml/toolbar_buyers_order_obj.xml',
 		'./src/templates/xml/tree_*.xml'
 	])
-		.pipe(resources('merged_data.js', function (data) {
+		.pipe(resources('injected.js', function (data) {
 			return new Buffer('$p.injected_data._mixin(' + JSON.stringify(data) + ');');
 		}))
 		.pipe(gulp.dest('./tmp'));

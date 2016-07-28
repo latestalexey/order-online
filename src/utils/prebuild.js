@@ -72,9 +72,11 @@ module.exports = function (fileName) {
 			};
 
 
+		// менеджеры перечислений
 		for(name in _m.enm)
 			text+= "$p.enm." + name + " = new $p.EnumManager('enm." + name + "');\n";
 
+		// менеджеры объектов данных
 		for(var category in categoties){
 			for(name in _m[category]){
 				text+= obj_constructor_text(_m, category, name, categoties[category].obj);
@@ -84,6 +86,14 @@ module.exports = function (fileName) {
 					text+= "$p." + category + "." + name + " = new $p." + categoties[category].mgr + "('" + category + "." + name + "');\n";
 			}
 		}
+
+		// менеджеры отчетов и обработок
+		["dp","rep"].forEach(function (category) {
+			for(name in _m[category]){
+				text+= obj_constructor_text(_m, category, name, "DataProcessorObj");
+				text+= "$p." + category + "." + name + " = new $p." + "DataProcessorsManager" + "('" + category + "." + name + "');\n";
+			}
+		});
 
 		return text + "};\n";
 
@@ -214,7 +224,11 @@ module.exports = function (fileName) {
 
 					joinedFile.contents = new Buffer(text);
 					t.push(joinedFile);
+
 					cb();
+
+					// отключаем все подписки и выгружаем менеджеров
+					$p.off();
 				})
 
 			})
