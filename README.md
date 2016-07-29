@@ -24,8 +24,9 @@
 - [1c_enterprise](http://1c-dn.com/1c_enterprise/), ORM сервер 1С:Предприятие
 
 #### Управление данными в памяти браузера
+- [metadata.js](http://www.oknosoft.ru/metadata/), движок ссылочной типизации для браузера и Node.js
 - [pouchDB](https://pouchdb.com/), клиентская NoSQL база данных с поддержкой автономной работы и репликации с CouchDB
-- [alaSQL](https://github.com/agershun/alasql), база данных SQL для браузера и Node.js с поддержкой как традиционных реляционных таблиц, так и вложенных JSON данных (NoSQL)
+- [alaSQL](https://github.com/agershun/alasql), SQL-интерфейс к массивам javascript в памяти браузера и Node.js
 
 #### UI библиотеки и компоненты интерфейса
 - [dhtmlx](http://dhtmlx.com/), кроссбраузерная библиотека javascript для построения современных веб и мобильных приложений

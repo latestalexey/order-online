@@ -46,7 +46,7 @@ describe("События:", function () {
 					$p.eve.redirect = true;
 
 					metaCallback = jasmine.createSpy("metaCallback");
-					$p.eve.attachEvent("meta", metaCallback);
+					$p.on("iface_init", metaCallback);
 
 					setTimeout(function() {
 						done();

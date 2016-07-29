@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 000000000130
+# 000000000131
 
 # Additional resources to cache
 CACHE:
@@ -10,7 +10,7 @@ CACHE:
 
 # Эти позиции включаем только в продакшене
 #
-//cdn.jsdelivr.net/g/momentjs,alasql,pouchdb,metadata@0.10.214(dhtmlx.min.js+metadata.min.js)
+//cdn.jsdelivr.net/g/momentjs,alasql,pouchdb,metadata@0.10.214(dhtmlx.min.js)
 dist/orders.min.js
 
 # А эти - только в дебагере
