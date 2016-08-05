@@ -11,12 +11,15 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	rename = require('gulp-rename'),
 	resources = require('./src/utils/resource-concat.js'),
-	umd = require('gulp-umd');
+	prebuild = require('./src/utils/prebuild.js'),
+	umd = require('gulp-umd'),
+	replace = require('gulp-replace'),
+	package_data = JSON.parse(require('fs').readFileSync('./package.json', 'utf8'));  // данные файла package.json
 
 module.exports = gulp;
 
 // Основная сборка проекта
-gulp.task('main', function(){
+function main(){
 
 	return gulp.src([
 		'./tmp/prebuild.js',
@@ -26,25 +29,27 @@ gulp.task('main', function(){
 		'./src/wdg_*.js',
 		'./src/view_*.js'
 	])
-		.pipe(concat('orders.js'))
+		.pipe(concat('app.js'))
+		.pipe(replace(/PACKAGE_PREFIX/g, package_data.config.prefix))
+		.pipe(replace(/PACKAGE_ZONE/g, package_data.config.zone))
+		.pipe(replace(/PACKAGE_COUCHDB/g, package_data.config.couchdb))
 		.pipe(umd({
 			exports: function(file) {
 				return 'undefined';
 			}
 		}))
 		.pipe(gulp.dest('./dist'))
-		.pipe(rename('orders.min.js'))
+		.pipe(rename('app.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('./dist'));
-});
+}
+gulp.task('main', main);
 
 // Сборка метаданных
 gulp.task('prebuild', function(){
 
-	var prebuild = require('./src/utils/prebuild.js');
-
 	return gulp.src(['./src/utils/prebuild.js'])
-		.pipe(prebuild('prebuild.js'))
+		.pipe(prebuild(package_data))
 		.pipe(gulp.dest('./tmp'));
 
 });
@@ -67,15 +72,15 @@ gulp.task('injected', function(){
 gulp.task('css-base64', function () {
 
 	return gulp.src([
-			'./src/templates/*.css'
-		])
+		'./src/templates/*.css'
+	])
 		.pipe(base64({
 			maxImageSize: 32*1024 // bytes
 		}))
-		.pipe(concat('orders.css'))
+		.pipe(concat('app.css'))
 		.pipe(csso())
 		.pipe(gulp.dest('./dist'));
 });
 
 
-gulp.task('full', ['injected', 'css-base64', 'prebuild', 'main'], function(){});
+gulp.task('full', ['injected', 'css-base64', 'prebuild'], main);

@@ -1,12 +1,12 @@
 {
   "name": "orders",
-  "description": "Заказы онлайн",
-  "version": "0.0.2",
+  "description": "Заказы онлайн/оффлайн",
+  "version": "0.0.3",
   "author": "Evgeniy Malyarov <info@oknosoft.ru> (http://www.oknosoft.ru)",
   "directories": {
   },
   "dependencies": {
-    "metadata-js": ">=0.10.214"
+    "metadata-js": ">=0.11"
   },
   "devDependencies": {
     "gulp": ">=3.9",
@@ -30,7 +30,7 @@
     "url": "https://github.com/oknosoft/order-online/issues"
   },
   "config": {
-    "path": "http://i980:89/couchdb/oo_",
+    "couchdb": "http://localhost:5984/oo_",
     "zone": 0,
     "prefix": "oo_",
     "suffix": ""
