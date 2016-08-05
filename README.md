@@ -21,7 +21,6 @@
 #### Серверная часть
 - [couchDB](http://couchdb.apache.org/), NoSQL база данных с поддержкой master-master репликации
 - [nginx](http://nginx.org/ru/), высокопроизводительный HTTP-сервер
-- [1c_enterprise](http://1c-dn.com/1c_enterprise/), ORM сервер 1С:Предприятие
 
 #### Управление данными в памяти браузера
 - [metadata.js](http://www.oknosoft.ru/metadata/), движок ссылочной типизации для браузера и Node.js
@@ -31,9 +30,13 @@
 #### UI библиотеки и компоненты интерфейса
 - [dhtmlx](http://dhtmlx.com/), кроссбраузерная библиотека javascript для построения современных веб и мобильных приложений
 - [handsontable](https://handsontable.com/), компонент для отображения и редактирования табличных данных
+- [daterangepicker](http://www.daterangepicker.com/), компонент визуализации и редактирования диапазона дат
 - [filesaver.js](https://github.com/eligrey/FileSaver.js), HTML5 реализация метода saveAs
 - [moment.js](http://momentjs.com/), библиотека форматирования интервалов и дат
+- [numbro](http://numbrojs.com/), библиотека форматирования чисел
+- [rubles.js](http://meritt.github.io/rubles/), библиотека форматирования чисел - сумма прописью 
 - [xlsx](https://github.com/SheetJS/js-xlsx), библиотека для чтения и записи XLSX / XLSM / XLSB / XLS / ODS в браузере
+- [aes](http://www.movable-type.co.uk/scripts/aes.html), библиотека шифрования/дешифрования строк
 
 #### Графика
 - [fontawesome](https://fortawesome.github.io/Font-Awesome/), набор шрифторвых иконок
