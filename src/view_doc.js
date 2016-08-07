@@ -5,9 +5,9 @@
  * &copy; Evgeniy Malyarov http://www.oknosoft.ru 2014-2016
  */
 
-$p.iface.view_orders = function (cell) {
+$p.iface.view_doc = function (cell) {
 
-	function OViewOrders(){
+	function OViewDocs(){
 
 		var t = this;
 
@@ -60,7 +60,7 @@ $p.iface.view_orders = function (cell) {
 		// обработчик маршрутизации url
 		function hash_route(hprm) {
 
-			if(hprm.view == "orders"){
+			if(hprm.view == "doc"){
 
 				if(hprm.obj == "doc.buyers_order" && !$p.utils.is_empty_guid(hprm.ref)){
 
@@ -131,6 +131,6 @@ $p.iface.view_orders = function (cell) {
 
 	}
 
-	return $p.iface._orders || ($p.iface._orders = new OViewOrders());
+	return $p.iface._doc || ($p.iface._doc = new OViewDocs());
 
 };

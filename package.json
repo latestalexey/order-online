@@ -30,13 +30,13 @@
     "url": "https://github.com/oknosoft/order-online/issues"
   },
   "config": {
-    "couchdb": "http://localhost:5984/oo_",
+    "couchdb": "/couchdb/oo_",
+    "rest_1c": "",
     "zone": 0,
     "prefix": "oo_",
     "suffix": ""
   },
   "homepage": "http://www.oknosoft.ru/metadata/",
-  "main": "dist/orders.min.js",
   "keywords": [
     "webshop",
     "webstore",

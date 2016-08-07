@@ -41,7 +41,9 @@
 				offsets: { top: 0, right: 0, bottom: 0, left: 0}
 			}),
 
-			tree = layout.cells("a").attachTree(),
+			tree = layout.cells("a").attachTreeView({
+				iconset: "font_awesome"
+			}),
 
 			carousel = layout.cells("b").attachCarousel({
 				keys:           false,
@@ -70,7 +72,7 @@
 		filter_view.__define({
 			value: {
 				get: function () {
-					switch(tree.getSelectedItemId()) {
+					switch(tree.getSelectedId()) {
 
 						case 'draft':
 						case 'sent':
@@ -91,7 +93,7 @@
 				get: function () {
 					var key, id;
 
-					switch(id = tree.getSelectedItemId()) {
+					switch(id = tree.getSelectedId()) {
 
 						case 'draft':
 						case 'sent':
@@ -122,9 +124,11 @@
 
 
 		// настраиваем дерево
-		tree.enableTreeImages(false);
-		tree.parse($p.injected_data["tree_filteres.xml"]);
-		tree.attachEvent("onSelect", function (rid) {
+		tree.loadStruct($p.injected_data["tree_filteres.xml"]);
+		tree.attachEvent("onSelect", function (rid, mode) {
+
+			if(!mode)
+				return;
 
 			// переключаем страницу карусели
 			switch(rid) {
