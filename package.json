@@ -33,8 +33,10 @@
     "couchdb": "/couchdb/oo_",
     "rest_1c": "",
     "zone": 0,
+    "zone_demo": 1,
     "prefix": "oo_",
-    "suffix": ""
+    "suffix": "",
+    "attachment_max_size": 10000000
   },
   "homepage": "http://www.oknosoft.ru/metadata/",
   "keywords": [

@@ -15,6 +15,7 @@
 		if(!attr)
 			attr = {
 				hide_header: true,
+				custom_selection: true,
 				date_from: new Date((new Date()).getFullYear().toFixed() + "-01-01"),
 				date_till: new Date((new Date()).getFullYear().toFixed() + "-12-31"),
 				on_new: function (o) {
@@ -61,67 +62,58 @@
 		carousel.conf.anim_slide = "left 0.1s";
 
 		var wnd = _mgr.form_selection(carousel.cells("list"), attr),
-
-			report,
-
-			filter_view = {},
-
-			filter_key = {};
+			report;
 
 		// настраиваем фильтр для списка заказов
-		filter_view.__define({
-			value: {
-				get: function () {
-					switch(tree.getSelectedId()) {
+		wnd.elmnts.filter.custom_selection._view = {
+			get value(){
+				switch(tree.getSelectedId()) {
 
-						case 'draft':
-						case 'sent':
-						case 'declined':
-						case 'confirmed':
-						case 'zarchive':
-							return 'doc/doc_buyers_order_date';
+					case 'draft':
+					case 'sent':
+					case 'declined':
+					case 'confirmed':
+					case 'zarchive':
+					case 'all':
+						return 'doc/by_date';
 
-						case 'execution':
-						case 'all':
-							return '';
-					}
+					case 'execution':
+						return '';
 				}
 			}
-		});
-		filter_key.__define({
-			value: {
-				get: function () {
-					var key, id;
+		};
+		wnd.elmnts.filter.custom_selection._key = {
+			get value(){
+				var key, id;
 
-					switch(id = tree.getSelectedId()) {
+				switch(id = tree.getSelectedId()) {
 
-						case 'draft':
-						case 'sent':
-						case 'declined':
-						case 'confirmed':
-						case 'zarchive':
-							key = id;
-							break;
+					case 'draft':
+					case 'sent':
+					case 'declined':
+					case 'confirmed':
+					case 'zarchive':
+						key = id;
+						break;
 
-						case 'execution':
-						case 'all':
-							return '';
-					}
+					case 'execution':
+						key = id;
+						break;
 
-					var filter = wnd.elmnts.filter.get_filter(true);
-					return {
-						startkey: [key, filter.date_from.getFullYear(), filter.date_from.getMonth()+1, filter.date_from.getDate()],
-						endkey: [key, filter.date_till.getFullYear(), filter.date_till.getMonth()+1, filter.date_till.getDate()],
-						_drop_date: true,
-						_order_by: true,
-						_search: filter.filter.toLowerCase()
-					};
+					case 'all':
+						key = _mgr.class_name;
 				}
-			}
-		});
-		wnd.elmnts.filter.custom_selection._view = filter_view;
-		wnd.elmnts.filter.custom_selection._key = filter_key;
 
+				var filter = wnd.elmnts.filter.get_filter(true);
+				return {
+					startkey: [key, filter.date_from.getFullYear(), filter.date_from.getMonth()+1, filter.date_from.getDate()],
+					endkey: [key, filter.date_till.getFullYear(), filter.date_till.getMonth()+1, filter.date_till.getDate()],
+					_drop_date: true,
+					_order_by: true,
+					_search: filter.filter.toLowerCase()
+				};
+			}
+		};
 
 		// настраиваем дерево
 		tree.loadStruct($p.injected_data["tree_filteres.xml"]);
