@@ -58,7 +58,7 @@
 		carousel.hideControls();
 		carousel.addCell("list");
 		carousel.addCell("report");
-		carousel.conf.anim_step = 200;
+		carousel.conf.anim_step = 150;
 		carousel.conf.anim_slide = "left 0.1s";
 
 		var wnd = _mgr.form_selection(carousel.cells("list"), attr),

@@ -48,11 +48,11 @@ $p.iface.view_doc = function (cell) {
 					})
 					.then(function (wnd) {
 						t.doc = wnd;
-						setTimeout(t.doc.wnd.set_text.bind(t.doc.wnd, true), 200);
+						setTimeout(t.doc.wnd.set_text.bind(t.doc.wnd, true), 220);
 					});
 
 			else if(t.doc && t.doc.wnd){
-				setTimeout(t.doc.wnd.set_text.bind(t.doc.wnd, true), 200);
+				setTimeout(t.doc.wnd.set_text.bind(t.doc.wnd, true), 220);
 			}
 
 		}
@@ -113,6 +113,8 @@ $p.iface.view_doc = function (cell) {
 		t.carousel.hideControls();
 		t.carousel.addCell("list");
 		t.carousel.addCell("doc");
+		t.carousel.conf.anim_step = 150;
+		t.carousel.conf.anim_slide = "left 0.1s";
 
 
 		// Дожидаемся инициализации констант

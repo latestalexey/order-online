@@ -1,7 +1,7 @@
 {
   "name": "orders",
   "description": "Заказы онлайн/оффлайн",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Evgeniy Malyarov <info@oknosoft.ru> (http://www.oknosoft.ru)",
   "directories": {
   },
@@ -33,7 +33,7 @@
     "couchdb": "/couchdb/oo_",
     "rest_1c": "",
     "zone": 0,
-    "zone_demo": 1,
+    "zone_demo": 0,
     "prefix": "oo_",
     "suffix": "",
     "attachment_max_size": 10000000
