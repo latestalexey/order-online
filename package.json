@@ -33,7 +33,7 @@
     "couchdb": "/couchdb/oo_",
     "rest_1c": "",
     "zone": 0,
-    "zone_demo": 0,
+    "zone_demo": 1,
     "prefix": "oo_",
     "suffix": "",
     "attachment_max_size": 10000000

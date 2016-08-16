@@ -2248,7 +2248,7 @@ $p.on({
 
 			// объявляем номер демо-зоны
 			zone_demo: {
-				value: 0,
+				value: 1,
 				writable: true
 			},
 
