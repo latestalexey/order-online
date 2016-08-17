@@ -38,6 +38,9 @@
     "suffix": "",
     "attachment_max_size": 10000000
   },
+  "scripts": {
+    "build": "gulp full"
+  },
   "homepage": "http://www.oknosoft.ru/metadata/",
   "keywords": [
     "webshop",
