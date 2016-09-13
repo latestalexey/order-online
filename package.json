@@ -1,12 +1,12 @@
 {
   "name": "orders",
   "description": "Заказы онлайн/оффлайн",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Evgeniy Malyarov <info@oknosoft.ru> (http://www.oknosoft.ru)",
   "directories": {
   },
   "dependencies": {
-    "metadata-js": ">=0.11"
+    "metadata-js": "^0.11"
   },
   "devDependencies": {
     "gulp": ">=3.9",
@@ -17,7 +17,7 @@
     "gulp-umd": ">=0.2",
     "gulp-replace": ">=0.5",
     "gulp-base64": ">=0.1",
-    "jasmine": ">=2.4"
+    "jasmine": ">=2.5"
   },
   "engines": {
     "node": ">=6.0"
